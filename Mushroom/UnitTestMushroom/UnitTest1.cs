@@ -14,7 +14,7 @@ namespace UnitTestMushroom
         }
 
 
-        //xNumberOfMushrooms este x-ul din cerinta 
+        //xNumberOfMushrooms este x-ul din cerinta , rosii is de x ori mai multe.
 
         decimal CalculateNumberOfRedmMushrooms(int totalMushrooms, int xNumberOfMushrooms)
         {
