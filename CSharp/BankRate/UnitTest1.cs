@@ -15,7 +15,9 @@ namespace BankRate
 
         decimal CalculateBankRate(decimal total, int perioadInMonths, decimal interestPerYear, int currentMonth)
         {
-            return total/perioadInMonths + total*interestPerYear/12/100;
+            decimal principal = total / perioadInMonths;
+            decimal exactInterestPerMonth = interestPerYear / 12 / 100;
+            return principal + total * exactInterestPerMonth;
         }
     }
 }
