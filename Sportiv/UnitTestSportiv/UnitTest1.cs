@@ -9,16 +9,23 @@ namespace UnitTestSportiv
         [TestMethod]
         public void NumberOfRepetitions()
         {
-            int totalRepetitions = CalculateRepetition(5, 4);
-            Assert.AreEqual(9,totalRepetitions);   
+            int totalRepetitions = CalculateRepetition(5);
+            Assert.AreEqual(25,totalRepetitions);   
+        }
+
+        [TestMethod]
+        public void NumberOfRepetitions2()
+        {
+            int totalRepetitions = CalculateRepetition(10);
+            Assert.AreEqual(100, totalRepetitions);
         }
 
         //firstNumberOfRepetitions reprezinta numarul de N repetitii la N runde
         //secondNumberOfRepetitions reprezinta numarul de 1/runda de repetitii , care este N-1
 
-        int CalculateRepetition(int firstNumberOfRepetitions, int secondNumberOfRepetitions)
+        int CalculateRepetition(int numberOfRepetitions)
         {
-            return firstNumberOfRepetitions + secondNumberOfRepetitions;
+            return numberOfRepetitions*numberOfRepetitions;
         }
     }
 }
