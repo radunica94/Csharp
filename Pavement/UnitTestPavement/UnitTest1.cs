@@ -51,18 +51,11 @@ namespace UnitTestPavement
         double CalculateNumberOfStones(double streetLenght, double streetWidth , double stoneDimension)
         {
             double result = 0;
-            if(streetLenght % stoneDimension == 0 && streetWidth % stoneDimension == 0)
-            {
-                double lenght = streetLenght / stoneDimension;
-                double widht = streetWidth / stoneDimension;
-                result = lenght * widht;
-            }
-            else
-            {
+            
                 double lenght = Math.Ceiling(streetLenght / stoneDimension);
                 double widht = Math.Ceiling(streetWidth / stoneDimension);
                 result = lenght*widht;
-            }
+            
             return result;        
         }
     }
