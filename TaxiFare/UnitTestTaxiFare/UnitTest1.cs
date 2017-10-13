@@ -7,28 +7,42 @@ namespace UnitTestTaxiFare
     public class UnitTest1
     {
         [TestMethod]
-        public void DayTimeFareForShortDistances()
+        public void DaytimeFareForShortDistances()
         {
                 Assert.AreEqual(5, CalculateTaxiFare(1, 8));
         }
 
         [TestMethod]
-        public void DayTimeFareForMediumDistances()
+        public void DaytimeFareForMediumDistances()
         {
             Assert.AreEqual(168, CalculateTaxiFare(21, 8));
         }
 
         [TestMethod]
-        public void DayTimeFareForLongDistances()
+        public void DaytimeFareForLongDistances()
         {
             Assert.AreEqual(600, CalculateTaxiFare(100, 8));
         }
 
+        [TestMethod]
+        public void NighttimeFareForShortDistances()
+        {
+            Assert.AreEqual(7, CalculateTaxiFare(1, 21));
+        }
+
+
         decimal CalculateTaxiFare(int distanceInKm, int hour)
         {
             decimal[] daytimePrices = { 5, 8, 6 };
-            decimal pricePerKm = GetPricePerKm(distanceInKm, daytimePrices);
+            decimal[] nighttimePrices = { 7 };
+            decimal[] prices = IsDayTime(hour) ? daytimePrices : nighttimePrices;
+            decimal pricePerKm = GetPricePerKm(distanceInKm, prices);
             return distanceInKm * pricePerKm;
+        }
+
+        private bool IsDayTime(int hour)
+        {
+            return 8 <= hour && hour < 21;
         }
 
         private decimal GetPricePerKm(int distanceInKm, decimal[] prices)
