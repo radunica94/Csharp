@@ -44,25 +44,40 @@ namespace UnitTestRomanNumbers
 
         string ConvertToRomanNumber(int numberToConvert)
         {
-            string[] hundredsLetters = { "", "C" };
-            string[] tensLetters = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
-            string[] onesLetters = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
-            string romanValue = "";
-            int number;
-            //numbers with 3 decimals
-            number = numberToConvert / 100;
-            romanValue += hundredsLetters[number];
-            numberToConvert %= 100;
+            //string[] hundredsLetters = { "", "C" };
+            //string[] tensLetters = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
+            //string[] onesLetters = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+            //string romanValue = "";
+            //int number;
 
-            //numbers with 2 decimals
-            number = numberToConvert / 10;
-            romanValue += tensLetters[number];
-            numberToConvert %= 10;
+            ////numbers with 3 decimals
+            //number = numberToConvert / 100;
+            //romanValue += hundredsLetters[number];
+            //numberToConvert %= 100;
 
-            //numbers with one decimal
-            romanValue += onesLetters[numberToConvert];
+            ////numbers with 2 decimals
+            //number = numberToConvert / 10;
+            //romanValue += tensLetters[number];
+            //numberToConvert %= 10;
 
-            return romanValue;
+            ////numbers with one decimal
+            //romanValue += onesLetters[numberToConvert];
+
+            int[] decimalNumbers = {100, 90, 50, 40, 10, 9, 5, 4, 1};
+            string[] romanNumbers = {"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+            string result = "";
+
+            for(int i =0; i < decimalNumbers.Length; i++)
+            {
+                while(decimalNumbers[i] <= numberToConvert)
+                {
+                    result += romanNumbers[i];
+                    numberToConvert -= decimalNumbers[i];
+                }
+            }
+           
+
+            return result;
         }
     }
 }
