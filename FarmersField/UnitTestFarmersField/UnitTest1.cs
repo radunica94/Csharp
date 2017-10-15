@@ -15,7 +15,7 @@ namespace UnitTestFarmersField
         {
             double delta = Math.Sqrt(Math.Pow(addedSize, 2) + 4 * totalArea);
             double side = (-addedSize + delta) / 2;
-            return side *side;
+            return Math.Pow(side,2);
         }
 
 
