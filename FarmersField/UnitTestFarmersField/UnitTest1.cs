@@ -13,12 +13,17 @@ namespace UnitTestFarmersField
         }
         double CalculateFieldSize(int addedSize , int totalArea)
         {
-            double delta = Math.Sqrt(Math.Pow(addedSize, 2) + 4 * totalArea);
-            
-            return Math.Pow(GetSize(addedSize,delta), 2);
+            double delta = GetDeltaValue(addedSize, totalArea);
+            double side = GetSideSize(addedSize, delta);
+            return Math.Pow(side, 2);
         }
 
-        private static double GetSize(int addedSize, double delta)
+        private static double GetDeltaValue(int addedSize, int totalArea)
+        {
+            return Math.Sqrt(Math.Pow(addedSize, 2) + 4 * totalArea);
+        }
+
+        private static double GetSideSize(int addedSize, double delta)
         {
             return (-addedSize + delta) / 2;
         }
