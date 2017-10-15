@@ -40,8 +40,7 @@ namespace UnitTestRent
                 return rent * 0.05 * delayedDays;
             if (delayedDays >= 31 && delayedDays <= 40)
                 return rent * 0.1 * delayedDays;
-            else
-                return 0;
+            return 0;
         }
 
     }
