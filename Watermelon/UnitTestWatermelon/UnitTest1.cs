@@ -12,6 +12,12 @@ namespace UnitTestWatermelon
             Assert.AreEqual("DA",CalculateMelonWeight(10));
         }
 
+        [TestMethod]
+        public void TestMethod2()
+        {
+            Assert.AreEqual("NU", CalculateMelonWeight(11));
+        }
+
         string CalculateMelonWeight(int melonWeight)
         {
             if(melonWeight %2 == 0) 
