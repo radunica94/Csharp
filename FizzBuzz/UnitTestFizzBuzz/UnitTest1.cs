@@ -23,9 +23,12 @@ namespace UnitTestFizzBuzz
         {
             Assert.AreEqual("FizzBuzz", FizzBuzz(15));
         }
-        int FizzBuzz(int value)
+        string FizzBuzz(int value)
         {
-            return 0;
+            if (value % 3 == 0)
+                return "Fizz";
+            else
+                return "NoFizzBuzz";
         }
     }
 }
