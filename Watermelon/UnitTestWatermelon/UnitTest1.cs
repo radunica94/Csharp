@@ -14,7 +14,9 @@ namespace UnitTestWatermelon
 
         string CalculateMelonWeight(int melonWeight)
         {
-            return "";
+            if(melonWeight %2 == 0) 
+                return "DA";
+            return "NU";
         }
     }
 }
