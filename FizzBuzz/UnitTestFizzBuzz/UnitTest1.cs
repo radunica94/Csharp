@@ -23,12 +23,33 @@ namespace UnitTestFizzBuzz
         {
             Assert.AreEqual("FizzBuzz", FizzBuzz(15));
         }
+
+        [TestMethod]
+        public void TestMethod4()
+        {
+            Assert.AreEqual("Fizz", FizzBuzz(21));
+        }
+
+        [TestMethod]
+        public void TestMethod5()
+        {
+            Assert.AreEqual("NoFizzBuzz", FizzBuzz(22));
+        }
+
+        [TestMethod]
+        public void TestMethod6()
+        {
+            Assert.AreEqual("FizzBuzz", FizzBuzz(75));
+        }
+
         string FizzBuzz(int value)
         {
+            if (value % 3 == 0 && value % 5 == 0)
+                return "FizzBuzz";
             if (value % 3 == 0)
                 return "Fizz";
             if (value % 5 == 0)
-                return "Buzz";
+                return "Buzz";            
             else
                 return "NoFizzBuzz";
         }
