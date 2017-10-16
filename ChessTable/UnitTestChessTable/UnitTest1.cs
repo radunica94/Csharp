@@ -14,7 +14,8 @@ namespace UnitTestChessTable
 
         double CalculateTheNumberOfSquares(int value)
         {
-            return Math.Pow(value-7, 2) + Math.Pow(value-6, 2) + Math.Pow(value-5, 2) + Math.Pow(value-4, 2) + Math.Pow(value-3, 2) + Math.Pow(value-2, 2) + Math.Pow(value-1, 2) + Math.Pow(value, 2);
+            
+            return (value * (value + 1) * (2 * value + 1)) / 6;
         }
     }
 }
