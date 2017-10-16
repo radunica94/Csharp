@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTestChessTable
 {
     [TestClass]
-    public class UnitTest1
+    public class ChessTable
     {
         [TestMethod]
         public void TestMethod1()
@@ -13,8 +13,7 @@ namespace UnitTestChessTable
         }
 
         double CalculateTheNumberOfSquares(int value)
-        {
-            
+        {            
             return (value * (value + 1) * (2 * value + 1)) / 6;
         }
     }
