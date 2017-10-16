@@ -12,6 +12,12 @@ namespace UnitTestPrefix
             Assert.AreEqual("aaa",FindThePrefix("aaab", "aaaabbaa"));
         }
 
+        [TestMethod]
+        public void TestMethod2()
+        {
+            Assert.AreEqual("aba", FindThePrefix("abab", "abaaabbaa"));
+        }
+
         string FindThePrefix(string firstValue, string secondValue)
         {
             int prefixLenght = 0;
