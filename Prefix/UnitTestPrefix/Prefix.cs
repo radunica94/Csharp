@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace UnitTestPrefix
 {
@@ -13,8 +14,9 @@ namespace UnitTestPrefix
         }
 
         string FindThePrefix(string firstValue, string secondValue)
-        {
-            return "";
+        {            
+            string similar = string.Join("", firstValue.TakeWhile((ch, i) => i < secondValue.Length && secondValue[i] == ch));
+            return similar;
         }
     }
 }
