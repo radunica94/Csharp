@@ -11,6 +11,31 @@ namespace UnitTestExcel
         {
             Assert.AreEqual("AA",ExelColumns(27));
         }
+        [TestMethod]
+        public void TestMethod2()
+        {
+            Assert.AreEqual("A", ExelColumns(1));
+        }
+        [TestMethod]
+        public void TestMethod3()
+        {
+            Assert.AreEqual("AB", ExelColumns(28));
+        }
+        [TestMethod]
+        public void TestMethod4()
+        {
+            Assert.AreEqual("AZ", ExelColumns(52));
+        }
+        [TestMethod]
+        public void TestMethod5()
+        {
+            Assert.AreEqual("BH", ExelColumns(60));
+        }
+        [TestMethod]
+        public void TestMethod6()
+        {
+            Assert.AreEqual("AAA", ExelColumns(703));
+        }
 
         string ExelColumns(int columnID)
         {
