@@ -55,13 +55,11 @@ namespace UnitTestPangram
         bool CheckForPangram(string sentence)
         {
             string characters = "abcdefghijklmnopqrstuvwxyz";
-            //string solution = "Panagram";
             bool solution1 = true;
             for(int i =0; i < characters.Length; i++)
             {
                 if (!sentence.ToLower().Contains(characters[i].ToString()))
-                {
-                    //solution = "Not a Panagram";
+                {                   
                     solution1 = false;
                     break;
                 }
