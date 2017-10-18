@@ -37,6 +37,12 @@ namespace UnitTestExcel
             Assert.AreEqual("AAA", ExelColumns(703));
         }
 
+        [TestMethod]
+        public void TestMethod7()
+        {
+            Assert.AreEqual("AAZ", ExelColumns(728));
+        }
+
         string ExelColumns(int columnID)
         {
             int id = columnID;
