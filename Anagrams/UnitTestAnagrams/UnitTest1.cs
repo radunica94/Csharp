@@ -7,14 +7,14 @@ namespace UnitTestAnagrams
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestForOneLetter()
         {
-            Assert.AreEqual(1,CalculateAnagrams("a");
+            Assert.AreEqual(1,CalculateAnagrams("a"));
         }
 
-        int CalculateAnagrams(string word)
+        double CalculateAnagrams(string word)
         {
-            return 0;
+            return Factorial(word.Length);
         }
 
         double Factorial(int i)
@@ -22,6 +22,11 @@ namespace UnitTestAnagrams
             if (i <= 1)
                 return 1;
             return i * Factorial(i - 1);
+        }
+
+        int RepeatingLetter()
+        {
+            return 0;
         }
     }
 }
