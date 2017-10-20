@@ -18,6 +18,12 @@ namespace UnitTestAnagrams
             Assert.AreEqual(24, CalculateAnagrams("abcd"));
         }
 
+        [TestMethod]
+        public void TestForEightLetters()
+        {
+            Assert.AreEqual(40320, CalculateAnagrams("abcdefgh"));
+        }
+
         int CalculateAnagrams(string word)
         {
             int fact = 1;
