@@ -54,18 +54,21 @@ namespace UnitTestPangram
 
         bool CheckForPangram(string sentence)
         {
-            string characters = "abcdefghijklmnopqrstuvwxyz";
-            bool solution1 = true;
-            for(int i =0; i < characters.Length; i++)
+            bool[] letters = new bool[26];
+            
+            for(int i =0; i < sentence.Length; i++)
             {
-                if (!sentence.ToLower().Contains(characters[i].ToString()))
-                {                   
-                    solution1 = false;
-                    break;
+                char character = char.ToUpper(sentence[i]);
+                if(character>= 'A' && character <= 'Z')
+                {
+                    int position = character - 'A';
+                    letters[position] = true;
                 }
             }
-
-            return solution1;
+            for (int i = 0; i < letters.Length; i++)
+                if (!letters[i])
+                    return false;
+            return true;
         }
     }
 }
