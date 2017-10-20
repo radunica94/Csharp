@@ -9,17 +9,17 @@ namespace UnitTestLottery
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.AreEqual(0.00000007, CalculateTheWinningChance(49));
+            Assert.AreEqual(0.00000007, CalculateTheWinningChance(49,6));
         }
         [TestMethod]
         public void TestMethod2()
         {
-            Assert.AreEqual(24, CalculateTheWinningChance(4));
+            Assert.AreEqual(5, CalculateTheWinningChance(5,4));
         }
 
-        double CalculateTheWinningChance(int totalNumber)
+        double CalculateTheWinningChance(int totalNumber, int winningNumbers)
         {
-            return Factorial(totalNumber);
+            return Combination(totalNumber,winningNumbers);
         }
 
         double Factorial(int i)
@@ -27,6 +27,10 @@ namespace UnitTestLottery
             if (i <= 1)
                 return 1;
             return i * Factorial(i - 1);
+        }
+        double Combination(int n , int k)
+        {
+            return Factorial(n) / (Factorial(k) * Factorial(n - k));
         }
     }
 }
