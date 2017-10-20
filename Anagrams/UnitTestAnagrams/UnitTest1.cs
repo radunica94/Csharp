@@ -24,6 +24,16 @@ namespace UnitTestAnagrams
             Assert.AreEqual(40320, CalculateAnagrams("abcdefgh"));
         }
 
+        [TestMethod]
+        public void TestForSameLetter()
+        {
+            Assert.AreEqual(1, CalculateAnagrams("aaaa"));
+        }
+        [TestMethod]
+        public void TestForMoreRepeatingLetters()
+        {
+            Assert.AreEqual(6, CalculateAnagrams("aabb"));
+        }
         int CalculateAnagrams(string word)
         {
             int fact = 1;
