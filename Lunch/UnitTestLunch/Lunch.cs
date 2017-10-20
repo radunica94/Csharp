@@ -23,12 +23,12 @@ namespace UnitTestLunch
         }
         int CalculateLunchSchedule(int mySchedule, int friendsSchedule)
         {
-            int sum = mySchedule * friendsSchedule;
+            int product = mySchedule * friendsSchedule;
             if (mySchedule == friendsSchedule)
                 return mySchedule;
-            if (sum % CalculateDifference(mySchedule, friendsSchedule) == 0)
-                return sum / CalculateDifference(mySchedule, friendsSchedule);
-            return sum;
+            if (product % CalculateDifference(mySchedule, friendsSchedule) == 0)
+                return product / CalculateDifference(mySchedule, friendsSchedule);
+            return product;
         }
 
         private int CalculateDifference(int mySchedule, int friendsSchedule)
