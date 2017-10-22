@@ -13,6 +13,16 @@ namespace UnitTestCub
         }
         int GetNumber(int number)
         {
+            int index = 0;
+            for(int i = 0; i<= 1000; i++)
+            {
+                if (Math.Pow(i, 3) % 1000 == 888)
+                {
+                    index++;
+                    if (index == number)
+                        return i;
+                }
+            }
             return 0;
         }
     }
