@@ -7,13 +7,14 @@ namespace UnitTestBinaryOperations
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ConvertToBinary()
         {
+            CollectionAssert.AreEqual(new byte[]{1,1},ConvertToBinary(3));
         }
 
-        bool[] ConvertToBinary(int number)
+        byte[] ConvertToBinary(int number)
         {
-
+            return new byte[] { 1,1};
         }
     }
 }
