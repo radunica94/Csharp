@@ -23,7 +23,17 @@ namespace UnitTestBinaryOperations
         {
             CollectionAssert.AreEqual(new byte[] {0,0,1}, LogicOperations(ConvertToBinary(1), ConvertToBinary(7), "AND"));
         }
-       
+        [TestMethod]
+        public void TestForOROperator()
+        {
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 1 }, LogicOperations(ConvertToBinary(1), ConvertToBinary(7), "OR"));
+        }
+        [TestMethod]
+        public void TestForXOROperator()
+        {
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, LogicOperations(ConvertToBinary(1), ConvertToBinary(7), "XOR"));
+        }
+
 
         byte[] ConvertToBinary(int number)
         {
