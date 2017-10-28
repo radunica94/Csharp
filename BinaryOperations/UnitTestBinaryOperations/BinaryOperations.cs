@@ -35,6 +35,12 @@ namespace UnitTestBinaryOperations
             CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, LogicOperations(ConvertToBinary(1), ConvertToBinary(7), "XOR"));
         }
 
+        [TestMethod]
+        public void TestForNotOperator()
+        {
+            CollectionAssert.AreEqual(new byte[] { 0, 0, 0 }, NotOperator(ConvertToBinary(7)));
+        }
+
         byte[] ConvertToBinary(int number)
         {
             byte[] value = new byte[0];
@@ -105,6 +111,19 @@ namespace UnitTestBinaryOperations
             if (position >= (number.Length))
                 return (byte)0;
             return number[number.Length - position - 1];
+        }
+
+        byte[] NotOperator(byte[] value)
+        {
+            byte[] result = new byte[value.Length];
+            for(int i = 0; i < value.Length; i++)
+            {
+                if (value[i] == 1)
+                    result[i] = 0;
+                else
+                    result[i] = 1;
+            }
+            return result;
         }
 
     }
