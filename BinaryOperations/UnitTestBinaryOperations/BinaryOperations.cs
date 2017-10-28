@@ -46,14 +46,14 @@ namespace UnitTestBinaryOperations
             CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, NotOperator(ConvertToBinary(5)));
         }
         [TestMethod]
-        public void TestForRightShitfOperator()
+        public void TestForShiftOperator()
         {
-            CollectionAssert.AreEqual(new byte[] { 0, 1, 1}, RightShitfOperator(ConvertToBinary(7)));
+            CollectionAssert.AreEqual(new byte[] { 0, 1, 1}, ShiftOperator(ConvertToBinary(7),"Right"));
         }
         [TestMethod]
-        public void TestForLeftShitfOperator()
+        public void TestForShiftOperator1()
         {
-            CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, LeftShitfOperator(ConvertToBinary(7)));
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, ShiftOperator(ConvertToBinary(7),"Left"));
         }
         byte[] ConvertToBinary(int number)
         {
@@ -140,19 +140,24 @@ namespace UnitTestBinaryOperations
             return result;
         }
 
-        byte[] RightShitfOperator(byte[] value)
+       
+        byte[] ShiftOperator(byte[] value, string direction)
         {
-            for (int i = value.Length - 1;  i < 0 ; i--)
-                value[i] = value[i - 1];
-            value[0] = 0;
+            switch (direction)
+            {
+                case "Right":
+                    for (int i = value.Length - 1; i < 0; i--)
+                        value[i] = value[i - 1];
+                    value[0] = 0;
+                    break;
+                case "Left":
+                    for (int i = 0; i < value.Length - 1; i++)
+                        value[i] = value[i + 1];
+                    value[value.Length - 1] = 0;
+                    break;
+            }
             return value;
         }
-        byte[] LeftShitfOperator(byte[] value)
-        {
-            for (int i = 0; i < value.Length - 1; i++)
-                value[i] = value[i + 1];
-            value[value.Length - 1] = 0;
-            return value;
-        }
+
     }
 }
