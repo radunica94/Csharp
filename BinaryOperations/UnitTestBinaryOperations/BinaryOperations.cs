@@ -71,6 +71,11 @@ namespace UnitTestBinaryOperations
             CollectionAssert.AreEqual(new byte[] { 1, 1, 1 }, AddOperator(ConvertToBinary(4), ConvertToBinary(3),2));
         }
         [TestMethod]
+        public void TestForAddOperator1()
+        {
+            CollectionAssert.AreEqual(new byte[] { 1,1,1,1,0 }, AddOperator(ConvertToBinary(15), ConvertToBinary(15), 2));
+        }
+        [TestMethod]
         public void TestForSubtractOperator()
         {
             CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, SubtractOperator(ConvertToBinary(7), ConvertToBinary(5)));
