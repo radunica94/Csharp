@@ -65,7 +65,16 @@ namespace UnitTestBinaryOperations
         {
             Assert.AreEqual(false, LessThanOperator(ConvertToBinary(7), ConvertToBinary(1)));
         }
-
+        [TestMethod]
+        public void TestForAddOperator()
+        {
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 1 }, AddOperator(ConvertToBinary(4), ConvertToBinary(3),2));
+        }
+        [TestMethod]
+        public void TestForSubtractOperator()
+        {
+            CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, SubtractOperator(ConvertToBinary(7), ConvertToBinary(5)));
+        }
         byte[] ConvertToBinary(int number)
         {
             byte[] value = new byte[0];
@@ -89,14 +98,14 @@ namespace UnitTestBinaryOperations
             }
             return value;
         }
-        byte[] LogicOperations(byte[] firstNumber, byte[] secondNumber, string operation)
+        byte[] LogicOperations(byte[] firstValue, byte[] secondValue, string operation)
         {
-            byte[] result = new byte[Math.Max(firstNumber.Length, secondNumber.Length)];
+            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
             for (int i = 0; i < result.Length; i++)
             {
-                byte firstNumberByte = AddZero(firstNumber, i);
-                byte secondNumberByte = AddZero(secondNumber, i);
-                result[i] = LogicOperations(firstNumberByte, secondNumberByte, operation);
+                byte firstValueByte = AddZero(firstValue, i);
+                byte secondValueByte = AddZero(secondValue, i);
+                result[i] = LogicOperations(firstValueByte, secondValueByte, operation);
             }
             return ReverseBinary(result);
         }
@@ -175,6 +184,28 @@ namespace UnitTestBinaryOperations
                 if (AddZero(firstValue, i) != AddZero(secondValue, i))
                     return (AddZero(firstValue, i) < AddZero(secondValue, i));
                 return false;
+        }
+
+        byte[] AddOperator(byte[] firstValue, byte[] secondValue,int conversion)
+        {
+            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
+            int carry = 0;
+            for (int i = 0; i < result.Length; i++)
+            {
+                int sum = AddZero(firstValue, i) + AddZero(secondValue, i) + carry;
+                result[i] = (byte)(sum % conversion);
+                carry = sum / conversion;
+            }
+            if (carry != 0)
+            {
+                Array.Resize(ref result, result.Length + 1);
+                result[result.Length - 1] = (byte)carry;
+            }
+            return ReverseBinary(result);
+        }
+        byte[] SubtractOperator(byte[] firstValue, byte[] secondValue)
+        {
+            return firstValue;
         }
     }
 }
