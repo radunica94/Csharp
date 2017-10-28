@@ -85,6 +85,11 @@ namespace UnitTestBinaryOperations
         {
             CollectionAssert.AreEqual(new byte[] { 1, 0, 1, 0 }, SubtractOperator(ConvertToBinary(15), ConvertToBinary(5)));
         }
+        [TestMethod]
+        public void TestForSubtractOperator2()
+        {
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 0, 0 }, SubtractOperator(ConvertToBinary(15), ConvertToBinary(3)));
+        }
         byte[] ConvertToBinary(int number)
         {
             byte[] value = new byte[0];
