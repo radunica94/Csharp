@@ -40,6 +40,11 @@ namespace UnitTestBinaryOperations
         {
             CollectionAssert.AreEqual(new byte[] { 0, 0, 0 }, NotOperator(ConvertToBinary(7)));
         }
+        [TestMethod]
+        public void TestForNotOperator1()
+        {
+            CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, NotOperator(ConvertToBinary(5)));
+        }
 
         byte[] ConvertToBinary(int number)
         {
