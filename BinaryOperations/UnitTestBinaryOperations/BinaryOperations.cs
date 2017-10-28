@@ -45,7 +45,16 @@ namespace UnitTestBinaryOperations
         {
             CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, NotOperator(ConvertToBinary(5)));
         }
-
+        [TestMethod]
+        public void TestForRightShitfOperator()
+        {
+            CollectionAssert.AreEqual(new byte[] { 0, 1, 1}, RightShitfOperator(ConvertToBinary(7)));
+        }
+        [TestMethod]
+        public void TestForLeftShitfOperator()
+        {
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, LeftShitfOperator(ConvertToBinary(7)));
+        }
         byte[] ConvertToBinary(int number)
         {
             byte[] value = new byte[0];
@@ -131,5 +140,19 @@ namespace UnitTestBinaryOperations
             return result;
         }
 
+        byte[] RightShitfOperator(byte[] value)
+        {
+            for (int i = value.Length - 1;  i < 0 ; i--)
+                value[i] = value[i - 1];
+            value[0] = 0;
+            return value;
+        }
+        byte[] LeftShitfOperator(byte[] value)
+        {
+            for (int i = 0; i < value.Length - 1; i++)
+                value[i] = value[i + 1];
+            value[value.Length - 1] = 0;
+            return value;
+        }
     }
 }
