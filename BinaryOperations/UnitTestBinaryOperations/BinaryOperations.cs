@@ -55,6 +55,17 @@ namespace UnitTestBinaryOperations
         {
             CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, ShiftOperator(ConvertToBinary(7),"Left"));
         }
+        [TestMethod]
+        public void TestForLessThanOperator()
+        {
+            Assert.AreEqual(true, LessThanOperator(ConvertToBinary(1), ConvertToBinary(7)));
+        }
+        [TestMethod]
+        public void TestForLessThanOperator1()
+        {
+            Assert.AreEqual(false, LessThanOperator(ConvertToBinary(7), ConvertToBinary(1)));
+        }
+
         byte[] ConvertToBinary(int number)
         {
             byte[] value = new byte[0];
@@ -139,7 +150,6 @@ namespace UnitTestBinaryOperations
             }
             return result;
         }
-
        
         byte[] ShiftOperator(byte[] value, string direction)
         {
@@ -159,5 +169,12 @@ namespace UnitTestBinaryOperations
             return value;
         }
 
+        bool LessThanOperator(byte[] firstValue , byte[] secondValue)
+        {
+            for (int i = 0; i < Math.Max(firstValue.Length, secondValue.Length); i++)
+                if (AddZero(firstValue, i) != AddZero(secondValue, i))
+                    return (AddZero(firstValue, i) < AddZero(secondValue, i));
+                return false;
+        }
     }
 }
