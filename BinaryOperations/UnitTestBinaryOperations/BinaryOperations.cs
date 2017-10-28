@@ -197,9 +197,9 @@ namespace UnitTestBinaryOperations
             int carry = 0;
             for (int i = 0; i < result.Length; i++)
             {
-                int sum = AddZero(firstValue, i) + AddZero(secondValue, i) + carry;
-                result[i] = (byte)(sum % conversion);
-                carry = sum / conversion;
+                int addition = AddZero(firstValue, i) + AddZero(secondValue, i) + carry;
+                result[i] = (byte)(addition % conversion);
+                carry = addition / conversion;
             }
             if (carry != 0)
             {
@@ -210,7 +210,13 @@ namespace UnitTestBinaryOperations
         }
         byte[] SubtractOperator(byte[] firstValue, byte[] secondValue)
         {
-            return firstValue;
+            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
+            for(int i = 0; i < result.Length; i++)
+            {
+                int subtraction = AddZero(firstValue, i) - AddZero(secondValue, i);
+                result[i] = (byte)(subtraction);
+            }
+            return ReverseBinary(result);
         }
     }
 }
