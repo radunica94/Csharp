@@ -78,24 +78,18 @@ namespace UnitTestBinaryOperations
         [TestMethod]
         public void TestForSubtractOperator()
         {
-            CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, SubtractOperator(ConvertToBinary(7), ConvertToBinary(5)));
+            CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, SubtractOperator(ConvertToBinary(7), ConvertToBinary(5),2));
         }
         [TestMethod]
         public void TestForSubtractOperator1()
         {
-            CollectionAssert.AreEqual(new byte[] { 1, 0, 1, 0 }, SubtractOperator(ConvertToBinary(15), ConvertToBinary(5)));
+            CollectionAssert.AreEqual(new byte[] { 1, 0, 1, 0 }, SubtractOperator(ConvertToBinary(15), ConvertToBinary(5),2));
         }
         [TestMethod]
         public void TestForSubtractOperator2()
         {
-            CollectionAssert.AreEqual(new byte[] { 1, 1, 0, 0 }, SubtractOperator(ConvertToBinary(15), ConvertToBinary(3)));
-        }
-        [TestMethod]
-        public void TestForMultiplyOperator()
-        {
-            CollectionAssert.AreEqual(new byte[] {1, 1, 0, 1, 1, 1, 0 }, MultiplyOperator(ConvertToBinary(10), ConvertToBinary(11),2));
-        }
-
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 0, 0 }, SubtractOperator(ConvertToBinary(15), ConvertToBinary(3),2));
+        }        
         [TestMethod]
         public void TestForNotEqual()
         {
@@ -239,27 +233,18 @@ namespace UnitTestBinaryOperations
             }
             return ReverseBinary(result);
         }
-        byte[] SubtractOperator(byte[] firstValue, byte[] secondValue)
+        byte[] SubtractOperator(byte[] firstValue, byte[] secondValue,int conversion)
         {
             byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
+            int carry = 0;
             for(int i = 0; i < result.Length; i++)
             {
-                int subtraction = AddZero(firstValue, i) - AddZero(secondValue, i);
-                result[i] = (byte)(subtraction);
+                int subtraction = conversion + AddZero(firstValue, i) - AddZero(secondValue, i) - carry;
+                result[i] = (byte)(subtraction%conversion);
+                carry = subtraction < conversion ? 1 : 0;
             }
             return ReverseBinary(result);
-        }
-        byte[] MultiplyOperator(byte[] firstValue , byte[] secondValue,int conversion) 
-        {
-            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
-            while(NotEqual(firstValue,ConvertToBinary(0)))
-            {
-                result = AddOperator(result,firstValue,conversion);
-                secondValue = SubtractOperator(secondValue,ConvertToBinary(1));
-            }
-
-            return result;
-        }
+        }       
 
         bool NotEqual(byte[] firstValue, byte[] secondValue)
         {
@@ -278,6 +263,17 @@ namespace UnitTestBinaryOperations
                 if (AddZero(firstValue, i) == AddZero(secondValue, i))
                     return true;
             return false;
+        }
+        byte[] MultiplyOperator(byte[] firstValue, byte[] secondValue, int conversion)
+        {
+            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
+            while (NotEqual(firstValue, ConvertToBinary(0)))
+            {
+                result = AddOperator(result, firstValue, conversion);
+                secondValue = SubtractOperator(secondValue, ConvertToBinary(1),conversion);
+            }
+
+            return result;
         }
     }
 }
