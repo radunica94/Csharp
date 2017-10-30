@@ -104,7 +104,7 @@ namespace UnitTestBinaryOperations
         [TestMethod]
         public void TestForEqual()
         {
-            Assert.AreEqual(false, Equal(ConvertToBinary(10), ConvertToBinary(11)));
+            Assert.AreEqual(true, Equal(ConvertToBinary(10), ConvertToBinary(10)));
         }
         [TestMethod]
         public void TestForGraterThan()
@@ -268,7 +268,7 @@ namespace UnitTestBinaryOperations
         bool GraterThan(byte[] firstValue, byte[] secondValue)
         {
             for (int i = 0; i < Math.Max(firstValue.Length, secondValue.Length); i++)
-                if (AddZero(firstValue, i) < AddZero(secondValue, i))
+                if (AddZero(firstValue, i) > AddZero(secondValue, i))
                     return true;
             return false;
         }
