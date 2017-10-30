@@ -90,6 +90,27 @@ namespace UnitTestBinaryOperations
         {
             CollectionAssert.AreEqual(new byte[] { 1, 1, 0, 0 }, SubtractOperator(ConvertToBinary(15), ConvertToBinary(3)));
         }
+        [TestMethod]
+        public void TestForMultiplyOperator()
+        {
+            CollectionAssert.AreEqual(new byte[] {1, 1, 0, 1, 1, 1, 0 }, MultiplyOperator(ConvertToBinary(10), ConvertToBinary(11),2));
+        }
+
+        [TestMethod]
+        public void TestForNotEqual()
+        {
+            Assert.AreEqual(true, NotEqual(ConvertToBinary(10), ConvertToBinary(11)));
+        }
+        [TestMethod]
+        public void TestForEqual()
+        {
+            Assert.AreEqual(false, Equal(ConvertToBinary(10), ConvertToBinary(11)));
+        }
+        [TestMethod]
+        public void TestForGraterThan()
+        {
+            Assert.AreEqual(false, GraterThan(ConvertToBinary(10), ConvertToBinary(11)));
+        }
         byte[] ConvertToBinary(int number)
         {
             byte[] value = new byte[0];
@@ -227,6 +248,36 @@ namespace UnitTestBinaryOperations
                 result[i] = (byte)(subtraction);
             }
             return ReverseBinary(result);
+        }
+        byte[] MultiplyOperator(byte[] firstValue , byte[] secondValue,int conversion) 
+        {
+            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
+            while(NotEqual(firstValue,ConvertToBinary(0)))
+            {
+                result = AddOperator(result,firstValue,conversion);
+                secondValue = SubtractOperator(secondValue,ConvertToBinary(1));
+            }
+
+            return result;
+        }
+
+        bool NotEqual(byte[] firstValue, byte[] secondValue)
+        {
+            return (GraterThan(firstValue, secondValue) || GraterThan(secondValue,firstValue));
+        }
+        bool GraterThan(byte[] firstValue, byte[] secondValue)
+        {
+            for (int i = 0; i < Math.Max(firstValue.Length, secondValue.Length); i++)
+                if (AddZero(firstValue, i) < AddZero(secondValue, i))
+                    return true;
+            return false;
+        }
+        bool Equal(byte[] firstValue, byte[] secondValue)
+        {
+            for (int i = 0; i < Math.Max(firstValue.Length, secondValue.Length); i++)
+                if (AddZero(firstValue, i) == AddZero(secondValue, i))
+                    return true;
+            return false;
         }
     }
 }
