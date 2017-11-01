@@ -108,7 +108,7 @@ namespace UnitTestBinaryOperations
         [TestMethod]
         public void TestForMultiplyOperator()
         {
-            CollectionAssert.AreEqual(new byte[] { 1, 1, 0, 0, 1, 0, 0 }, MultiplyOperator(ConvertToBinary(10), ConvertToBinary(10), 2));
+            CollectionAssert.AreEqual(ConvertToBinary(10 * 5), MultiplyOperator(ConvertToBinary(10), ConvertToBinary(5), 2));
         }
         [TestMethod]
         public void TestForConvertIntoBase()
@@ -120,7 +120,13 @@ namespace UnitTestBinaryOperations
         {
             CollectionAssert.AreEqual(new byte[] { 1, 255 }, ConvertIntoBase(511, 256));
         }
-        byte[] ConvertToBinary(int number)
+        [TestMethod]
+        public void TestForDivideOperator()
+        {
+            CollectionAssert.AreEqual(ConvertToBinary(9 / 3), DivideOperator(ConvertToBinary(9), ConvertToBinary(3), 2));
+        }
+
+       byte[] ConvertToBinary(int number)
         {
             byte[] value = new byte[0];
             int i = 0;
@@ -278,18 +284,7 @@ namespace UnitTestBinaryOperations
                 if (AddZero(firstValue, i) == AddZero(secondValue, i))
                     return true;
             return false;
-        }
-        byte[] MultiplyOperator(byte[] firstValue, byte[] secondValue, int conversion)
-        {
-            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
-            while (NotEqual(firstValue, ConvertToBinary(0)))
-            {
-                result = AddOperator(result, firstValue, conversion);
-                secondValue = SubtractOperator(secondValue, ConvertToBinary(1),conversion);
-            }
-            return result;
-        }
-
+        }        
         byte[] ConvertIntoBase(double value , int conversion)
         {
             byte[] result = new byte[0];
@@ -302,6 +297,26 @@ namespace UnitTestBinaryOperations
                 i++;
             }
             return ReverseBinary(result);
+        }
+        byte[] MultiplyOperator(byte[] firstValue, byte[] secondValue, int conversion)
+        {
+            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
+            while (NotEqual(secondValue, ConvertToBinary(0)))
+            {
+                result = AddOperator(result, firstValue, conversion);
+                secondValue = SubtractOperator(secondValue, ConvertToBinary(1), conversion);
+            }
+            return result;
+        }
+        byte[] DivideOperator(byte[] firstValue, byte[] secondValue, int conversion)
+        {
+            int divizor = 0;
+            while (NotEqual(firstValue, ConvertToBinary(0)))
+            {
+                firstValue = SubtractOperator(firstValue,secondValue,conversion);
+                divizor++;
+            }
+            return ConvertIntoBase(divizor,conversion);
         }
     }
 }
