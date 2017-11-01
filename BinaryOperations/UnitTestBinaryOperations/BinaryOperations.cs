@@ -105,6 +105,21 @@ namespace UnitTestBinaryOperations
         {
             Assert.AreEqual(false, GraterThan(ConvertToBinary(10), ConvertToBinary(11)));
         }
+        [TestMethod]
+        public void TestForMultiplyOperator()
+        {
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 0, 0, 1, 0, 0 }, MultiplyOperator(ConvertToBinary(10), ConvertToBinary(10), 2));
+        }
+        [TestMethod]
+        public void TestForConvertIntoBase()
+        {
+            CollectionAssert.AreEqual(new byte[] { 1, 0 }, ConvertIntoBase(16, 16));
+        }
+        [TestMethod]
+        public void TestForConvertIntoBase1()
+        {
+            CollectionAssert.AreEqual(new byte[] { 1, 255 }, ConvertIntoBase(511, 256));
+        }
         byte[] ConvertToBinary(int number)
         {
             byte[] value = new byte[0];
@@ -272,8 +287,21 @@ namespace UnitTestBinaryOperations
                 result = AddOperator(result, firstValue, conversion);
                 secondValue = SubtractOperator(secondValue, ConvertToBinary(1),conversion);
             }
-
             return result;
+        }
+
+        byte[] ConvertIntoBase(double value , int conversion)
+        {
+            byte[] result = new byte[0];
+            int i = 0;
+            while (value > 0)
+            {
+                Array.Resize(ref result, i + 1);
+                result[i] = (byte)(value % conversion);
+                value = (int)value/conversion;
+                i++;
+            }
+            return ReverseBinary(result);
         }
     }
 }
