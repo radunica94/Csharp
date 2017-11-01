@@ -140,8 +140,23 @@ namespace UnitTestBinaryOperations
         {
             CollectionAssert.AreEqual(ConvertToBinary(9 / 3), DivideOperator(ConvertToBinary(9), ConvertToBinary(3), 2));
         }
+        [TestMethod]
+        public void TestForDivideOperator1()
+        {
+            CollectionAssert.AreEqual(ConvertToBinary(15 / 3), DivideOperator(ConvertToBinary(15), ConvertToBinary(3), 2));
+        }
+        [TestMethod]
+        public void TestForDivideOperator2()
+        {
+            CollectionAssert.AreEqual(ConvertToBinary(20 / 2), DivideOperator(ConvertToBinary(20), ConvertToBinary(2), 2));
+        }
+        [TestMethod]
+        public void TestForDivideOperator3()
+        {
+            CollectionAssert.AreEqual(ConvertToBinary(9 / 3), DivideOperator(ConvertToBinary(33), ConvertToBinary(11), 2));
+        }
 
-       byte[] ConvertToBinary(int number)
+        byte[] ConvertToBinary(int number)
         {
             byte[] value = new byte[0];
             int i = 0;
