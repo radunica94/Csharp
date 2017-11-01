@@ -111,6 +111,11 @@ namespace UnitTestBinaryOperations
             CollectionAssert.AreEqual(ConvertToBinary(10 * 5), MultiplyOperator(ConvertToBinary(10), ConvertToBinary(5), 2));
         }
         [TestMethod]
+        public void TestForMultiplyOperator1()
+        {
+            CollectionAssert.AreEqual(ConvertToBinary(10 * 11), MultiplyOperator(ConvertToBinary(10), ConvertToBinary(11), 2));
+        }
+        [TestMethod]
         public void TestForConvertIntoBase()
         {
             CollectionAssert.AreEqual(new byte[] { 1, 0 }, ConvertIntoBase(16, 16));
