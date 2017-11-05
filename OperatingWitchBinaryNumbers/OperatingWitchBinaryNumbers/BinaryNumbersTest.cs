@@ -24,7 +24,7 @@ namespace OperatingWitchBinaryNumbers
             var firstValue = new BinaryNumbers();
             var secondValue = new BinaryNumbers();
             var result = new BinaryNumbers();
-            Assert.Equal(new byte[] { 0, 0, 1 }, result.LogicOperations(firstValue.ConvertToBinary(1), secondValue.ConvertToBinary(7), "AND"));
+            Assert.Equal(new byte[] { 0, 0, 1 }, result.LogicOperation(firstValue.ConvertToBinary(1), secondValue.ConvertToBinary(7), "AND"));
         }
         [Fact]
         public void OROperator()
@@ -32,7 +32,7 @@ namespace OperatingWitchBinaryNumbers
             var firstValue = new BinaryNumbers();
             var secondValue = new BinaryNumbers();
             var result = new BinaryNumbers();
-            Assert.Equal(new byte[] { 1, 1, 1 }, result.LogicOperations(firstValue.ConvertToBinary(1), secondValue.ConvertToBinary(7), "OR"));
+            Assert.Equal(new byte[] { 1, 1, 1 }, result.LogicOperation(firstValue.ConvertToBinary(1), secondValue.ConvertToBinary(7), "OR"));
         }
         [Fact]
         public void XOROperator()
@@ -40,7 +40,14 @@ namespace OperatingWitchBinaryNumbers
             var firstValue = new BinaryNumbers();
             var secondValue = new BinaryNumbers();
             var result = new BinaryNumbers();
-            Assert.Equal(new byte[] { 1, 1, 0 }, result.LogicOperations(firstValue.ConvertToBinary(1), secondValue.ConvertToBinary(7), "XOR"));
+            Assert.Equal(new byte[] { 1, 1, 0 }, result.LogicOperation(firstValue.ConvertToBinary(1), secondValue.ConvertToBinary(7), "XOR"));
+        }
+        [Fact]
+        public void NOTOperator()
+        {
+            var value = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(new byte[] { 0, 0, 0 }, result.NotOperation(value.ConvertToBinary(7)));
         }
     }
 }

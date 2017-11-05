@@ -33,14 +33,14 @@ namespace OperatingWitchBinaryNumbers
             }
             return binary;
         }
-        public byte[] LogicOperations(byte[] firstValue, byte[] secondValue, string operation)
+        public byte[] LogicOperation(byte[] firstValue, byte[] secondValue, string operation)
         {
             byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
             for (int i = 0; i < result.Length; i++)
             {
                 byte firstValueByte = AddZero(firstValue, i);
                 byte secondValueByte = AddZero(secondValue, i);
-                result[i] = LogicOperations(firstValueByte, secondValueByte, operation);
+                result[i] = LogicOperation(firstValueByte, secondValueByte, operation);
             }
             return ReverseBinary(result);
         }
@@ -62,7 +62,8 @@ namespace OperatingWitchBinaryNumbers
                 return 1;
             return 0;
         }
-        public byte LogicOperations(byte firstValue, byte secondValue, string operation)
+
+        public byte LogicOperation(byte firstValue, byte secondValue, string operation)
         {
             switch (operation)
             {
@@ -81,5 +82,19 @@ namespace OperatingWitchBinaryNumbers
                 return (byte)0;
             return number[number.Length - position - 1];
         }
+
+        public byte[] NotOperation(byte[] value)
+        {
+            byte[] result = new byte[value.Length];
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (value[i] == 1)
+                    result[i] = 0;
+                else
+                    result[i] = 1;
+            }
+            return result;
+        }
+
     }
 }
