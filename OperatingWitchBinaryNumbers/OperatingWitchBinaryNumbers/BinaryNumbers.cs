@@ -131,5 +131,18 @@ namespace OperatingWitchBinaryNumbers
             }
             return ReverseBinary(result);
         }
+        public byte[] SubtractOperation(byte[] firstValue, byte[] secondValue, int conversion)
+        {
+            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
+            int carry = 0;
+            for (int i = 0; i < result.Length; i++)
+            {
+                int subtraction = conversion + AddZero(firstValue, i) - AddZero(secondValue, i) - carry;
+                result[i] = (byte)(subtraction % conversion);
+                carry = subtraction < conversion ? 1 : 0;
+            }
+            return ReverseBinary(result);
+        }
+
     }
 }
