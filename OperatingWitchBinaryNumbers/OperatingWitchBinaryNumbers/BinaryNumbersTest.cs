@@ -132,5 +132,37 @@ namespace OperatingWitchBinaryNumbers
             var result = new BinaryNumbers();
             Assert.Equal(true, result.NotEqual(firstValue.ConvertToBinary(12), secondValue.ConvertToBinary(11)));
         }
+        [Fact]
+        public void TenTimesTwenty()
+        {
+            var firstValue = new BinaryNumbers();
+            var secondValue = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(result.ConvertToBinary(10 * 20), result.MultiplyOperation(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(20), 2));
+        }
+        [Fact]
+        public void FourTimesFour()
+        {
+            var firstValue = new BinaryNumbers();
+            var secondValue = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(result.ConvertToBinary(4 * 4), result.MultiplyOperation(firstValue.ConvertToBinary(4), secondValue.ConvertToBinary(4), 2));
+        }
+        [Fact]
+        public void TenTimesEleven()
+        {
+            var firstValue = new BinaryNumbers();
+            var secondValue = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(result.ConvertToBinary(10 * 11), result.MultiplyOperation(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(11), 2));
+        }
+        [Fact]
+        public void TenTimesFive()
+        {
+            var firstValue = new BinaryNumbers();
+            var secondValue = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(result.ConvertToBinary(10 * 5), result.MultiplyOperation(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(5), 2));
+        }
     }
 }

@@ -161,5 +161,15 @@ namespace OperatingWitchBinaryNumbers
                     return true;
             return false;
         }
+        public byte[] MultiplyOperation(byte[] firstValue, byte[] secondValue, int conversion)
+        {
+            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
+            while (NotEqual(secondValue, ConvertToBinary(0)))
+            {
+                result = AddOperation(result, firstValue, conversion);
+                secondValue = SubtractOperation(secondValue, ConvertToBinary(1), conversion);
+            }
+            return result;
+        }
     }
 }
