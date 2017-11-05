@@ -196,5 +196,17 @@ namespace OperatingWitchBinaryNumbers
             var result = new BinaryNumbers();
             Assert.Equal(result.ConvertToBinary(33 / 11), result.DivideOperation(firstValue.ConvertToBinary(33), secondValue.ConvertToBinary(11), 2));
         }
+        [Fact]
+        public void ConvertIntoBaseOp()
+        {
+            var value = new BinaryNumbers();
+            Assert.Equal(new byte[] { 1, 255 }, value.ConvertIntoBase(511, 256));
+        }
+        [Fact]
+        public void ConvertIntoBaseOP()
+        {
+            var value = new BinaryNumbers();
+            Assert.Equal(new byte[] { 1, 0 }, value.ConvertIntoBase(16, 16));
+        }
     }
 }
