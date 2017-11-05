@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OperatingWitchBinaryNumbers
+namespace OperatingWithBinaryNumbers
 {
     class BinaryNumbers
     {
