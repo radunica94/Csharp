@@ -43,11 +43,18 @@ namespace OperatingWitchBinaryNumbers
             Assert.Equal(new byte[] { 1, 1, 0 }, result.LogicOperation(firstValue.ConvertToBinary(1), secondValue.ConvertToBinary(7), "XOR"));
         }
         [Fact]
-        public void NOTOperator()
+        public void NOTOperatorFirstTest()
         {
             var value = new BinaryNumbers();
             var result = new BinaryNumbers();
             Assert.Equal(new byte[] { 0, 0, 0 }, result.NotOperation(value.ConvertToBinary(7)));
+        }
+        [Fact]
+        public void NOTOperatorSecondTest()
+        {
+            var value = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(new byte[] { 0, 1, 0 }, result.NotOperation(value.ConvertToBinary(5)));
         }
     }
 }

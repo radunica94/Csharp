@@ -95,6 +95,23 @@ namespace OperatingWitchBinaryNumbers
             }
             return result;
         }
+        public byte[] ShiftOperator(byte[] value, string direction)
+        {
+            switch (direction)
+            {
+                case "Right":
+                    for (int i = value.Length - 1; i < 0; i--)
+                        value[i] = value[i - 1];
+                    value[0] = 0;
+                    break;
+                case "Left":
+                    for (int i = 0; i < value.Length - 1; i++)
+                        value[i] = value[i + 1];
+                    value[value.Length - 1] = 0;
+                    break;
+            }
+            return value;
+        }
 
     }
 }
