@@ -12,6 +12,11 @@ namespace OperatingWitchBinaryNumbers
             var firstValue = new BinaryNumbers();
             Assert.Equal(new byte[] { 1, 1 }, firstValue.ConvertToBinary(3));
         }
-
+        [Fact]
+        public void ConvertFifteenToBinary()
+        {
+            var firstValue = new BinaryNumbers();
+            Assert.Equal(new byte[] { 1, 1, 1, 1 }, firstValue.ConvertToBinary(15));
+        }
     }
 }
