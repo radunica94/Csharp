@@ -102,5 +102,35 @@ namespace OperatingWitchBinaryNumbers
             var result = new BinaryNumbers();
             Assert.Equal(new byte[] { 1, 0, 1, 0 }, result.SubtractOperation(firstValue.ConvertToBinary(15), secondValue.ConvertToBinary(5), 2));
         }
+        [Fact]
+        public void FifteenMinusThree()
+        {
+            var firstValue = new BinaryNumbers();
+            var secondValue = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(new byte[] { 1, 1, 0, 0 }, result.SubtractOperation(firstValue.ConvertToBinary(15), secondValue.ConvertToBinary(3), 2));
+        }
+        [Fact]
+        public void NotEqual()
+        {
+            var firstValue = new BinaryNumbers();
+            var secondValue = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(true, result.NotEqual(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(11)));
+        }
+        public void Equal()
+        {
+            var firstValue = new BinaryNumbers();
+            var secondValue = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(true, result.NotEqual(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(10)));
+        }
+        public void GraterThan()
+        {
+            var firstValue = new BinaryNumbers();
+            var secondValue = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(true, result.NotEqual(firstValue.ConvertToBinary(12), secondValue.ConvertToBinary(11)));
+        }
     }
 }
