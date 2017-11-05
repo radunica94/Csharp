@@ -94,5 +94,13 @@ namespace OperatingWitchBinaryNumbers
             var result = new BinaryNumbers();
             Assert.Equal(new byte[] { 0, 1, 0 }, result.SubtractOperation(firstValue.ConvertToBinary(7), secondValue.ConvertToBinary(5), 2));
         }
+        [Fact]
+        public void FifteenMinusFive()
+        {
+            var firstValue = new BinaryNumbers();
+            var secondValue = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(new byte[] { 1, 0, 1, 0 }, result.SubtractOperation(firstValue.ConvertToBinary(15), secondValue.ConvertToBinary(5), 2));
+        }
     }
 }
