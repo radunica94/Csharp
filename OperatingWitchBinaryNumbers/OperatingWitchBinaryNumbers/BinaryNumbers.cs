@@ -171,5 +171,28 @@ namespace OperatingWitchBinaryNumbers
             }
             return result;
         }
+        public byte[] DivideOperation(byte[] firstValue, byte[] secondValue, int conversion)
+        {
+            int divizor = 0;
+            while (NotEqual(firstValue, ConvertToBinary(0)))
+            {
+                firstValue = SubtractOperation(firstValue, secondValue, conversion);
+                divizor++;
+            }
+            return ConvertIntoBase(divizor, conversion);
+        }
+        public byte[] ConvertIntoBase(double value, int conversion)
+        {
+            byte[] result = new byte[0];
+            int i = 0;
+            while (value > 0)
+            {
+                Array.Resize(ref result, i + 1);
+                result[i] = (byte)(value % conversion);
+                value = (int)value / conversion;
+                i++;
+            }
+            return ReverseBinary(result);
+        }
     }
 }
