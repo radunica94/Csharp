@@ -95,7 +95,7 @@ namespace OperatingWitchBinaryNumbers
             }
             return result;
         }
-        public byte[] ShiftOperator(byte[] value, string direction)
+        public byte[] ShiftOperation(byte[] value, string direction)
         {
             switch (direction)
             {
