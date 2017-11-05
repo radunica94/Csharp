@@ -95,6 +95,7 @@ namespace OperatingWitchBinaryNumbers
             }
             return result;
         }
+
         public byte[] ShiftOperation(byte[] value, string direction)
         {
             switch (direction)
@@ -113,5 +114,22 @@ namespace OperatingWitchBinaryNumbers
             return value;
         }
 
+        public byte[] AddOperation(byte[] firstValue, byte[] secondValue, int conversion)
+        {
+            byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
+            int carry = 0;
+            for (int i = 0; i < result.Length; i++)
+            {
+                int addition = AddZero(firstValue, i) + AddZero(secondValue, i) + carry;
+                result[i] = (byte)(addition % conversion);
+                carry = addition / conversion;
+            }
+            if (carry != 0)
+            {
+                Array.Resize(ref result, result.Length + 1);
+                result[result.Length - 1] = (byte)carry;
+            }
+            return ReverseBinary(result);
+        }
     }
 }

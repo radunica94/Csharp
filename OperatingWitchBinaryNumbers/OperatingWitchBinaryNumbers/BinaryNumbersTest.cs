@@ -70,5 +70,13 @@ namespace OperatingWitchBinaryNumbers
             var result = new BinaryNumbers();
             Assert.Equal(new byte[] { 1, 1, 0 }, result.ShiftOperation(value.ConvertToBinary(7), "Left"));
         }
+        [Fact]
+        public void AddOperator()
+        {
+            var firstValue = new BinaryNumbers();
+            var secondValue = new BinaryNumbers();
+            var result = new BinaryNumbers();
+            Assert.Equal(new byte[] { 1, 1, 1 }, result.AddOperation(firstValue.ConvertToBinary(4), secondValue.ConvertToBinary(3), 2));
+        }
     }
 }
