@@ -155,11 +155,18 @@ namespace BinaryNumber
         {
             return (GraterThan(firstValue, secondValue) || GraterThan(secondValue, firstValue));
         }
+
         public bool GraterThan(byte[] firstValue, byte[] secondValue)
         {
             for (int i = 0; i < Math.Max(firstValue.Length, secondValue.Length); i++)
                 if (AddZero(firstValue, i) > AddZero(secondValue, i))
                     return true;
+            return false;
+        }
+        internal bool GraterThan(BinaryNumbers secondValue)
+        {
+            if (GraterThan(value, secondValue.value))
+                return true;
             return false;
         }
         public bool Equal(byte[] firstValue, byte[] secondValue)
@@ -213,5 +220,7 @@ namespace BinaryNumber
             }
             return ReverseBinary(result);
         }
+
+        
     }
 }

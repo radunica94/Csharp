@@ -150,82 +150,96 @@ namespace BinaryNumber
 //                var result = new BinaryNumbers();
 //                Assert.Equal(true, result.NotEqual(firstValue.ConvertToBinary(12), secondValue.ConvertToBinary(11)));
 //            }
-//            [Fact]
-//            public void TenTimesTwenty()
-//            {
-//                var firstValue = new BinaryNumbers();
-//                var secondValue = new BinaryNumbers();
-//                var result = new BinaryNumbers();
-//                Assert.Equal(result.ConvertToBinary(10 * 20), result.MultiplyOperation(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(20), 2));
-//            }
-//            [Fact]
-//            public void FourTimesFour()
-//            {
-//                var firstValue = new BinaryNumbers();
-//                var secondValue = new BinaryNumbers();
-//                var result = new BinaryNumbers();
-//                Assert.Equal(result.ConvertToBinary(4 * 4), result.MultiplyOperation(firstValue.ConvertToBinary(4), secondValue.ConvertToBinary(4), 2));
-//            }
-//            [Fact]
-//            public void TenTimesEleven()
-//            {
-//                var firstValue = new BinaryNumbers();
-//                var secondValue = new BinaryNumbers();
-//                var result = new BinaryNumbers();
-//                Assert.Equal(result.ConvertToBinary(10 * 11), result.MultiplyOperation(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(11), 2));
-//            }
-//            [Fact]
-//            public void TenTimesFive()
-//            {
-//                var firstValue = new BinaryNumbers();
-//                var secondValue = new BinaryNumbers();
-//                var result = new BinaryNumbers();
-//                Assert.Equal(result.ConvertToBinary(10 * 5), result.MultiplyOperation(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(5), 2));
-//            }
-//            [Fact]
-//            public void NineDividedIntoThree()
-//            {
-//                var firstValue = new BinaryNumbers();
-//                var secondValue = new BinaryNumbers();
-//                var result = new BinaryNumbers();
-//                Assert.Equal(result.ConvertToBinary(9 / 3), result.DivideOperation(firstValue.ConvertToBinary(9), secondValue.ConvertToBinary(3), 2));
-//            }
-//            [Fact]
-//            public void FifteenDividedIntoThree()
-//            {
-//                var firstValue = new BinaryNumbers();
-//                var secondValue = new BinaryNumbers();
-//                var result = new BinaryNumbers();
-//                Assert.Equal(result.ConvertToBinary(15 / 3), result.DivideOperation(firstValue.ConvertToBinary(15), secondValue.ConvertToBinary(3), 2));
-//            }
-//            [Fact]
-//            public void TwentyDividedIntoTwo()
-//            {
-//                var firstValue = new BinaryNumbers();
-//                var secondValue = new BinaryNumbers();
-//                var result = new BinaryNumbers();
-//                Assert.Equal(result.ConvertToBinary(20 / 2), result.DivideOperation(firstValue.ConvertToBinary(20), secondValue.ConvertToBinary(2), 2));
-//            }
-//            [Fact]
-//            public void ThirtyThreeDividedIntoEleven()
-//            {
-//                var firstValue = new BinaryNumbers();
-//                var secondValue = new BinaryNumbers();
-//                var result = new BinaryNumbers();
-//                Assert.Equal(result.ConvertToBinary(33 / 11), result.DivideOperation(firstValue.ConvertToBinary(33), secondValue.ConvertToBinary(11), 2));
-//            }
-//            [Fact]
-//            public void ConvertIntoBaseOp()
-//            {
-//                var value = new BinaryNumbers();
-//                Assert.Equal(new byte[] { 1, 255 }, value.ConvertIntoBase(511, 256));
-//            }
-//            [Fact]
-//            public void ConvertIntoBaseOP()
-//            {
-//                var value = new BinaryNumbers();
-//                Assert.Equal(new byte[] { 1, 0 }, value.ConvertIntoBase(16, 16));
-//            }
-//        }
+              [Fact]
+              public void GraterThan()
+              {
+                  BinaryNumbers fristValue = new BinaryNumbers(12);
+                  BinaryNumbers secondValue = new BinaryNumbers(11);
+                  Assert.True(fristValue.GraterThan(secondValue));
+              }
+              [Fact]
+              public void GraterThanSecondTest()
+              {
+                  BinaryNumbers fristValue = new BinaryNumbers(12);
+                  BinaryNumbers secondValue = new BinaryNumbers(12);
+                  Assert.False(fristValue.GraterThan(secondValue));
+              }
+        //            [Fact]
+        //            public void TenTimesTwenty()
+        //            {
+        //                var firstValue = new BinaryNumbers();
+        //                var secondValue = new BinaryNumbers();
+        //                var result = new BinaryNumbers();
+        //                Assert.Equal(result.ConvertToBinary(10 * 20), result.MultiplyOperation(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(20), 2));
+        //            }
+        //            [Fact]
+        //            public void FourTimesFour()
+        //            {
+        //                var firstValue = new BinaryNumbers();
+        //                var secondValue = new BinaryNumbers();
+        //                var result = new BinaryNumbers();
+        //                Assert.Equal(result.ConvertToBinary(4 * 4), result.MultiplyOperation(firstValue.ConvertToBinary(4), secondValue.ConvertToBinary(4), 2));
+        //            }
+        //            [Fact]
+        //            public void TenTimesEleven()
+        //            {
+        //                var firstValue = new BinaryNumbers();
+        //                var secondValue = new BinaryNumbers();
+        //                var result = new BinaryNumbers();
+        //                Assert.Equal(result.ConvertToBinary(10 * 11), result.MultiplyOperation(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(11), 2));
+        //            }
+        //            [Fact]
+        //            public void TenTimesFive()
+        //            {
+        //                var firstValue = new BinaryNumbers();
+        //                var secondValue = new BinaryNumbers();
+        //                var result = new BinaryNumbers();
+        //                Assert.Equal(result.ConvertToBinary(10 * 5), result.MultiplyOperation(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(5), 2));
+        //            }
+        //            [Fact]
+        //            public void NineDividedIntoThree()
+        //            {
+        //                var firstValue = new BinaryNumbers();
+        //                var secondValue = new BinaryNumbers();
+        //                var result = new BinaryNumbers();
+        //                Assert.Equal(result.ConvertToBinary(9 / 3), result.DivideOperation(firstValue.ConvertToBinary(9), secondValue.ConvertToBinary(3), 2));
+        //            }
+        //            [Fact]
+        //            public void FifteenDividedIntoThree()
+        //            {
+        //                var firstValue = new BinaryNumbers();
+        //                var secondValue = new BinaryNumbers();
+        //                var result = new BinaryNumbers();
+        //                Assert.Equal(result.ConvertToBinary(15 / 3), result.DivideOperation(firstValue.ConvertToBinary(15), secondValue.ConvertToBinary(3), 2));
+        //            }
+        //            [Fact]
+        //            public void TwentyDividedIntoTwo()
+        //            {
+        //                var firstValue = new BinaryNumbers();
+        //                var secondValue = new BinaryNumbers();
+        //                var result = new BinaryNumbers();
+        //                Assert.Equal(result.ConvertToBinary(20 / 2), result.DivideOperation(firstValue.ConvertToBinary(20), secondValue.ConvertToBinary(2), 2));
+        //            }
+        //            [Fact]
+        //            public void ThirtyThreeDividedIntoEleven()
+        //            {
+        //                var firstValue = new BinaryNumbers();
+        //                var secondValue = new BinaryNumbers();
+        //                var result = new BinaryNumbers();
+        //                Assert.Equal(result.ConvertToBinary(33 / 11), result.DivideOperation(firstValue.ConvertToBinary(33), secondValue.ConvertToBinary(11), 2));
+        //            }
+        //            [Fact]
+        //            public void ConvertIntoBaseOp()
+        //            {
+        //                var value = new BinaryNumbers();
+        //                Assert.Equal(new byte[] { 1, 255 }, value.ConvertIntoBase(511, 256));
+        //            }
+        //            [Fact]
+        //            public void ConvertIntoBaseOP()
+        //            {
+        //                var value = new BinaryNumbers();
+        //                Assert.Equal(new byte[] { 1, 0 }, value.ConvertIntoBase(16, 16));
+        //            }
+        //        }
     }
 }
