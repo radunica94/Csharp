@@ -151,11 +151,21 @@ namespace BinaryNumber
             }
             return ReverseBinary(result);
         }
+        //NotEqual Function
         public bool NotEqual(byte[] firstValue, byte[] secondValue)
         {
             return (GraterThan(firstValue, secondValue) || GraterThan(secondValue, firstValue));
         }
 
+        internal bool NotEqual(BinaryNumbers secondValue)
+        {
+            if (NotEqual(value, secondValue.value))
+                return true;
+            return false;
+        }
+
+
+        //GraterThan Function
         public bool GraterThan(byte[] firstValue, byte[] secondValue)
         {
             for (int i = 0; i < Math.Max(firstValue.Length, secondValue.Length); i++)
@@ -163,12 +173,13 @@ namespace BinaryNumber
                     return true;
             return false;
         }
-        internal bool GraterThan(BinaryNumbers secondValue)
+        public bool GraterThan(BinaryNumbers secondValue)
         {
             if (GraterThan(value, secondValue.value))
                 return true;
             return false;
         }
+        //Equal Function
         public bool Equal(byte[] firstValue, byte[] secondValue)
         {
             for (int i = 0; i < Math.Max(firstValue.Length, secondValue.Length); i++)
@@ -207,6 +218,8 @@ namespace BinaryNumber
             }
             return ConvertIntoBase(divizor, conversion);
         }
+
+        
         public byte[] ConvertIntoBase(double value, int conversion)
         {
             byte[] result = new byte[0];
