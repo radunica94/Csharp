@@ -6,9 +6,16 @@ namespace BinaryNumber
 {
     class BinaryNumbers
     {
+        private byte[] value;
+
+        
+        public BinaryNumbers(int number)
+        {
+            this.value = ConvertToBinary(number);
+        }
+
         public BinaryNumbers()
         {
-
         }
 
         public byte[] ConvertToBinary(int value)
@@ -44,6 +51,7 @@ namespace BinaryNumber
             }
             return ReverseBinary(result);
         }
+
         public byte ANDOperator(byte firstValue, byte secondValue)
         {
             if (firstValue == secondValue && firstValue == 1)
@@ -157,10 +165,19 @@ namespace BinaryNumber
         public bool Equal(byte[] firstValue, byte[] secondValue)
         {
             for (int i = 0; i < Math.Max(firstValue.Length, secondValue.Length); i++)
-                if (AddZero(firstValue, i) == AddZero(secondValue, i))
-                    return true;
+                if (AddZero(firstValue, i) != AddZero(secondValue, i))
+                    return false;
+            return true;
+        }
+
+        public bool Equal(BinaryNumbers secondValue)
+        {
+
+            if (Equal(value, secondValue.value)) 
+                return true;
             return false;
         }
+
         public byte[] MultiplyOperation(byte[] firstValue, byte[] secondValue, int conversion)
         {
             byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
@@ -171,6 +188,8 @@ namespace BinaryNumber
             }
             return result;
         }
+
+
         public byte[] DivideOperation(byte[] firstValue, byte[] secondValue, int conversion)
         {
             int divizor = 0;
