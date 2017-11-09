@@ -27,6 +27,13 @@ namespace BinaryNumber
         //                var result = new BinaryNumbers();
         //                Assert.Equal(new byte[] { 0, 0, 1 }, result.LogicOperation(firstValue.ConvertToBinary(1), secondValue.ConvertToBinary(7), "AND"));
         //            }
+        //[Fact]
+        //public void AND()
+        //{
+        //    BinaryNumber firstValue = new BinaryNumber(2);
+        //    BinaryNumber secondValue = new BinaryNumber(3);
+        //    Assert.Equal(new BinaryNumber(2 & 3), firstValue.And(secondValue));
+        //}
 
         //            [Fact]
         //            public void OROperator()
@@ -80,6 +87,19 @@ namespace BinaryNumber
         //                var result = new BinaryNumbers();
         //                Assert.Equal(new byte[] { 1, 1, 1 }, result.AddOperation(firstValue.ConvertToBinary(4), secondValue.ConvertToBinary(3), 2));
         //            }
+
+
+        //[Fact]
+        //[Theory]
+        //[InlineData(4)]
+        //[InlineData(3)]
+        //[InlineData(7)]
+        //public void Add(byte firstValue , byte secondValue, byte result)
+        //{            
+        //    Assert.Equal(result, firstValue.Add(secondValue));
+        //}
+
+
         //            [Fact]
         //            public void FifteenPlusFiFteen()
         //            {
@@ -120,18 +140,18 @@ namespace BinaryNumber
         //                var result = new BinaryNumbers();
         //                Assert.Equal(true, result.NotEqual(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(11)));
         //            }
-                      [Fact]
+        [Fact]
                       public void IsNotEqual()
                       {
-                          BinaryNumbers fristValue = new BinaryNumbers(2);
-                          BinaryNumbers secondValue = new BinaryNumbers(3);
+                          BinaryNumber fristValue = new BinaryNumber(2);
+                          BinaryNumber secondValue = new BinaryNumber(3);
                           Assert.True(fristValue.NotEqual(secondValue));
                       }
                       [Fact]
                       public void IsNotEqualSecondTest()
                       {
-                          BinaryNumbers fristValue = new BinaryNumbers(3);
-                          BinaryNumbers secondValue = new BinaryNumbers(3);
+                          BinaryNumber fristValue = new BinaryNumber(3);
+                          BinaryNumber secondValue = new BinaryNumber(3);
                           Assert.False(fristValue.NotEqual(secondValue));
                       }
         //            [Fact]
@@ -142,20 +162,20 @@ namespace BinaryNumber
         //                var result = new BinaryNumbers();
         //                Assert.Equal(false, result.NotEqual(firstValue.ConvertToBinary(10), secondValue.ConvertToBinary(9)));
         //            }
-        [Fact]
-            public void IsEqual()
-            {
-                BinaryNumbers fristValue = new BinaryNumbers(2);
-                BinaryNumbers secondValue = new BinaryNumbers(2);
-                Assert.True(fristValue.Equal(secondValue));
-            }
-            [Fact]
-            public void IsEqualSecondTest()
-            {
-                BinaryNumbers fristValue = new BinaryNumbers(2);
-                BinaryNumbers secondValue = new BinaryNumbers(3);
-                Assert.False(fristValue.Equal(secondValue));
-            }
+                      [Fact]
+                      public void IsEqual()
+                      {
+                          BinaryNumber fristValue = new BinaryNumber(2);
+                          BinaryNumber secondValue = new BinaryNumber(2);
+                          Assert.True(fristValue.Equal(secondValue));
+                      }
+                      [Fact]
+                      public void IsEqualSecondTest()
+                      {
+                          BinaryNumber fristValue = new BinaryNumber(2);
+                          BinaryNumber secondValue = new BinaryNumber(3);
+                          Assert.False(fristValue.Equal(secondValue));
+                      }
 //            [Fact]
 //            public void GraterThan()
 //            {
@@ -164,20 +184,20 @@ namespace BinaryNumber
 //                var result = new BinaryNumbers();
 //                Assert.Equal(true, result.NotEqual(firstValue.ConvertToBinary(12), secondValue.ConvertToBinary(11)));
 //            }
-              [Fact]
-              public void GraterThan()
-              {
-                  BinaryNumbers fristValue = new BinaryNumbers(12);
-                  BinaryNumbers secondValue = new BinaryNumbers(11);
-                  Assert.True(fristValue.GraterThan(secondValue));
-              }
-              [Fact]
-              public void GraterThanSecondTest()
-              {
-                  BinaryNumbers fristValue = new BinaryNumbers(12);
-                  BinaryNumbers secondValue = new BinaryNumbers(12);
-                  Assert.False(fristValue.GraterThan(secondValue));
-              }
+                      [Fact]
+                      public void GraterThan()
+                      {
+                          BinaryNumber fristValue = new BinaryNumber(12);
+                          BinaryNumber secondValue = new BinaryNumber(11);
+                          Assert.True(fristValue.GraterThan(secondValue));
+                      }
+                      [Fact]
+                      public void GraterThanSecondTest()
+                      {
+                          BinaryNumber fristValue = new BinaryNumber(12);
+                          BinaryNumber secondValue = new BinaryNumber(12);
+                          Assert.False(fristValue.GraterThan(secondValue));
+                      }
         //            [Fact]
         //            public void TenTimesTwenty()
         //            {

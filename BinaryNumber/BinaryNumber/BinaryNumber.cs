@@ -4,21 +4,21 @@ using System.Text;
 
 namespace BinaryNumber
 {
-    class BinaryNumbers
+    class BinaryNumber
     {
         private byte[] value;
 
         
-        public BinaryNumbers(int number)
+        public BinaryNumber(int number)
         {
             this.value = ConvertToBinary(number);
         }
 
-        public BinaryNumbers()
+        public BinaryNumber()
         {
         }
 
-        public byte[] ConvertToBinary(int value)
+        private byte[] ConvertToBinary(int value)
         {
             byte[] binary = new byte[0];
             int i = 0;
@@ -31,7 +31,7 @@ namespace BinaryNumber
             }
             return ReverseBinary(binary);
         }
-        public byte[] ReverseBinary(byte[] value)
+        private byte[] ReverseBinary(byte[] value)
         {
             byte[] binary = new byte[value.Length];
             for (int i = 0; i < value.Length; i++)
@@ -40,7 +40,7 @@ namespace BinaryNumber
             }
             return binary;
         }
-        public byte[] LogicOperation(byte[] firstValue, byte[] secondValue, string operation)
+        private byte[] LogicOperation(byte[] firstValue, byte[] secondValue, string operation)
         {
             byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
             for (int i = 0; i < result.Length; i++)
@@ -52,26 +52,35 @@ namespace BinaryNumber
             return ReverseBinary(result);
         }
 
-        public byte ANDOperator(byte firstValue, byte secondValue)
+        
+
+        private byte ANDOperator(byte firstValue, byte secondValue)
         {
             if (firstValue == secondValue && firstValue == 1)
                 return 1;
             return 0;
         }
-        public byte OROperator(byte firstValue, byte secondValue)
+
+        //public byte[] And(BinaryNumber secondValue)
+        //{
+        //    return ANDOperator(value, secondValue.value);
+        //}
+
+
+        private byte OROperator(byte firstValue, byte secondValue)
         {
             if (firstValue == 1 || secondValue == 1)
                 return 1;
             return 0;
         }
-        public byte XOROperator(byte firstValue, byte secondValue)
+        private byte XOROperator(byte firstValue, byte secondValue)
         {
             if (firstValue != secondValue)
                 return 1;
             return 0;
         }
 
-        public byte LogicOperation(byte firstValue, byte secondValue, string operation)
+        private byte LogicOperation(byte firstValue, byte secondValue, string operation)
         {
             switch (operation)
             {
@@ -84,14 +93,14 @@ namespace BinaryNumber
             }
             return 0;
         }
-        public byte AddZero(byte[] number, int position)
+        private byte AddZero(byte[] number, int position)
         {
             if (position >= (number.Length))
                 return (byte)0;
             return number[number.Length - position - 1];
         }
 
-        public byte[] NotOperation(byte[] value)
+        private byte[] NotOperation(byte[] value)
         {
             byte[] result = new byte[value.Length];
             for (int i = 0; i < value.Length; i++)
@@ -104,7 +113,7 @@ namespace BinaryNumber
             return result;
         }
 
-        public byte[] ShiftOperation(byte[] value, string direction)
+        private byte[] ShiftOperation(byte[] value, string direction)
         {
             switch (direction)
             {
@@ -122,7 +131,7 @@ namespace BinaryNumber
             return value;
         }
 
-        public byte[] AddOperation(byte[] firstValue, byte[] secondValue, int conversion)
+        private byte[] AddOperation(byte[] firstValue, byte[] secondValue, int conversion)
         {
             byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
             int carry = 0;
@@ -139,7 +148,13 @@ namespace BinaryNumber
             }
             return ReverseBinary(result);
         }
-        public byte[] SubtractOperation(byte[] firstValue, byte[] secondValue, int conversion)
+
+        //public byte[] ADD(BinaryNumber secondValue)
+        //{
+        //    return AddOperation(value, secondValue.value);
+        //}
+
+        private byte[] SubtractOperation(byte[] firstValue, byte[] secondValue, int conversion)
         {
             byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
             int carry = 0;
@@ -152,12 +167,12 @@ namespace BinaryNumber
             return ReverseBinary(result);
         }
         //NotEqual Function
-        public bool NotEqual(byte[] firstValue, byte[] secondValue)
+        private bool NotEqual(byte[] firstValue, byte[] secondValue)
         {
             return (GraterThan(firstValue, secondValue) || GraterThan(secondValue, firstValue));
         }
 
-        internal bool NotEqual(BinaryNumbers secondValue)
+        public bool NotEqual(BinaryNumber secondValue)
         {
             if (NotEqual(value, secondValue.value))
                 return true;
@@ -166,21 +181,21 @@ namespace BinaryNumber
 
 
         //GraterThan Function
-        public bool GraterThan(byte[] firstValue, byte[] secondValue)
+        private bool GraterThan(byte[] firstValue, byte[] secondValue)
         {
             for (int i = 0; i < Math.Max(firstValue.Length, secondValue.Length); i++)
                 if (AddZero(firstValue, i) > AddZero(secondValue, i))
                     return true;
             return false;
         }
-        public bool GraterThan(BinaryNumbers secondValue)
+        public bool GraterThan(BinaryNumber secondValue)
         {
             if (GraterThan(value, secondValue.value))
                 return true;
             return false;
         }
         //Equal Function
-        public bool Equal(byte[] firstValue, byte[] secondValue)
+        private bool Equal(byte[] firstValue, byte[] secondValue)
         {
             for (int i = 0; i < Math.Max(firstValue.Length, secondValue.Length); i++)
                 if (AddZero(firstValue, i) != AddZero(secondValue, i))
@@ -188,7 +203,7 @@ namespace BinaryNumber
             return true;
         }
 
-        public bool Equal(BinaryNumbers secondValue)
+        public bool Equal(BinaryNumber secondValue)
         {
 
             if (Equal(value, secondValue.value)) 
@@ -196,7 +211,7 @@ namespace BinaryNumber
             return false;
         }
 
-        public byte[] MultiplyOperation(byte[] firstValue, byte[] secondValue, int conversion)
+        private byte[] MultiplyOperation(byte[] firstValue, byte[] secondValue, int conversion)
         {
             byte[] result = new byte[Math.Max(firstValue.Length, secondValue.Length)];
             while (NotEqual(secondValue, ConvertToBinary(0)))
@@ -208,7 +223,7 @@ namespace BinaryNumber
         }
 
 
-        public byte[] DivideOperation(byte[] firstValue, byte[] secondValue, int conversion)
+        private byte[] DivideOperation(byte[] firstValue, byte[] secondValue, int conversion)
         {
             int divizor = 0;
             while (NotEqual(firstValue, ConvertToBinary(0)))
@@ -219,8 +234,8 @@ namespace BinaryNumber
             return ConvertIntoBase(divizor, conversion);
         }
 
-        
-        public byte[] ConvertIntoBase(double value, int conversion)
+
+        private byte[] ConvertIntoBase(double value, int conversion)
         {
             byte[] result = new byte[0];
             int i = 0;
