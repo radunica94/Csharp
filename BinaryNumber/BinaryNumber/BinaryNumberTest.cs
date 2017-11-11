@@ -76,7 +76,7 @@ namespace BinaryNumber
                         {
                             BinaryNumber firstValue = new BinaryNumber(7);
                             BinaryNumber result = new BinaryNumber(7 >> 2);
-                            Assert.Equal(result.GetValue(), firstValue.ShiftR(firstValue));
+                            Assert.Equal(result.GetValue(), result.ShiftR(firstValue));
                         }
 
                         [Fact]
@@ -84,7 +84,7 @@ namespace BinaryNumber
                         {
                             BinaryNumber firstValue = new BinaryNumber(7);
                             BinaryNumber result = new BinaryNumber(7 << 2);
-                            Assert.Equal(result.GetValue(), firstValue.ShiftL(firstValue));
+                            Assert.Equal(result.GetValue(), result.ShiftL(firstValue));
                         }      
 
 
@@ -105,7 +105,7 @@ namespace BinaryNumber
         //                var result = new BinaryNumbers();
         //                Assert.Equal(new byte[] { 1, 1, 1, 1, 0 }, result.AddOperation(firstValue.ConvertToBinary(15), secondValue.ConvertToBinary(15), 2));
         //            }
-        [Fact]
+                        [Fact]
                         public void ForPlusThree()
                         {
                             BinaryNumber firstValue = new BinaryNumber(4);
@@ -145,12 +145,12 @@ namespace BinaryNumber
         //                var result = new BinaryNumbers();
         //                Assert.Equal(new byte[] { 1, 1, 0, 0 }, result.SubtractOperation(firstValue.ConvertToBinary(15), secondValue.ConvertToBinary(3), 2));
         //            }
-        [Fact]
+                        [Fact]
                         public void SevenMinusFive()
                         {
                             BinaryNumber firstValue = new BinaryNumber(7);
-                            BinaryNumber secondValue = new BinaryNumber(5);
-                            BinaryNumber result = new BinaryNumber(7 - 5);
+                            BinaryNumber secondValue = new BinaryNumber(2);
+                            BinaryNumber result = new BinaryNumber(7 - 2);
                             Assert.Equal(result.GetValue(), firstValue.Sub(secondValue, 2));
                         }
                         [Fact]

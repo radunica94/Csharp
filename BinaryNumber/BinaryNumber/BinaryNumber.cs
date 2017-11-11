@@ -139,8 +139,9 @@ namespace BinaryNumber
                     value[value.Length - 1] = 0;
                     break;
             }
-            return value;
+            return ReverseBinary(value);
         }
+
         public byte[] ShiftR(BinaryNumber firstValue)
         {
             return ShiftOperation(firstValue.value, "Right");
@@ -149,7 +150,7 @@ namespace BinaryNumber
         public byte[] ShiftL(BinaryNumber firstValue)
         {
             return ShiftOperation(firstValue.value, "Left");
-        }
+        }                
 
         //AddOperation
         private byte[] AddOperation(byte[] firstValue, byte[] secondValue, int conversion)
@@ -194,6 +195,7 @@ namespace BinaryNumber
         {
             return SubtractOperation(value, secondValue.value, conversion);
         }
+
         //NotEqual Function
         private bool NotEqual(byte[] firstValue, byte[] secondValue)
         {
