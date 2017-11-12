@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace BinaryNumber
 {
@@ -122,34 +123,38 @@ namespace BinaryNumber
             }
             return result;
         }
-        
-
-        private byte[] ShiftOperation(byte[] value, string direction)
+        //Right shift
+        private byte[] RightShift(byte[] value, byte shiftsNr)
         {
-            switch (direction)
+            byte[] result = new byte[value.Length - 2];
+            for (int i = 0; i < value.Length-2; i++)
             {
-                case "Right":
-                    for (int i = value.Length - 1; i < 0; i--)
-                        value[i] = value[i - 1];
-                    value[0] = 0;
-                    break;
-                case "Left":
-                    for (int i = 0; i < value.Length - 1; i++)
-                        value[i] = value[i + 1];
-                    value[value.Length - 1] = 0;
-                    break;
+                result[i] = value[i];
             }
-            return ReverseBinary(value);
+            return result;
         }
-
-        public byte[] ShiftR(BinaryNumber firstValue)
+        public byte[] ShiftR(byte shiftsNr)
         {
-            return ShiftOperation(firstValue.value, "Right");
+            return RightShift(value, shiftsNr);
         }
-
-        public byte[] ShiftL(BinaryNumber firstValue)
+        //Left Shift 
+        private byte[] LeftShift(byte[] value, byte shiftsNr)
         {
-            return ShiftOperation(firstValue.value, "Left");
+            byte[] newValue = new byte[value.Length + shiftsNr];
+            for(int i = 0; i < value.Length; i++)
+            {
+                newValue[i] = value[i];
+            }
+            for(int i=value.Length; i<value.Length + shiftsNr; i++)
+            {
+                newValue[i] = 0;
+            }
+            return newValue;
+        }      
+
+        public byte[] ShiftL(byte shiftsNr)
+        {
+            return LeftShift(value, shiftsNr);
         }                
 
         //AddOperation
