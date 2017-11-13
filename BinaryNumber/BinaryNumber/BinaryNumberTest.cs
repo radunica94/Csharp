@@ -14,7 +14,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(3);
             BinaryNumber result = new BinaryNumber(2 & 3);
             var method = firstValue.And(secondValue);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
 
 
@@ -25,7 +25,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(7);
             BinaryNumber result = new BinaryNumber(1 | 7);
             var method = firstValue.Or(secondValue);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(7);
             BinaryNumber result = new BinaryNumber(1 ^ 7);
             var method = firstValue.Xor(secondValue);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
 
 
@@ -45,7 +45,7 @@ namespace BinaryNumber
             BinaryNumber firstValue = new BinaryNumber(11);
             BinaryNumber result = new BinaryNumber(11 >> 2);
             var method = firstValue.ShiftR(2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace BinaryNumber
             BinaryNumber firstValue = new BinaryNumber(7);
             BinaryNumber result = new BinaryNumber(7 << 2);
             var method = firstValue.ShiftL(2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
         [Fact]
         public void ShiftLeftOperatorSecondTest()
@@ -62,7 +62,7 @@ namespace BinaryNumber
             BinaryNumber firstValue = new BinaryNumber(15);
             BinaryNumber result = new BinaryNumber(15 << 2);
             var method = firstValue.ShiftL(2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
 
 
@@ -74,7 +74,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(3);
             BinaryNumber result = new BinaryNumber(4 + 3);
             var method = firstValue.Add(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
         [Fact]
         public void FifteenPlusFiFteen()
@@ -83,7 +83,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(15);
             BinaryNumber result = new BinaryNumber(15 + 15);
             var method = firstValue.Add(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
 
         [Fact]
@@ -93,7 +93,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(2);
             BinaryNumber result = new BinaryNumber(7 - 2);
             var method = firstValue.Sub(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
         [Fact]
         public void FifteenMinusFive()
@@ -102,7 +102,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(5);
             BinaryNumber result = new BinaryNumber(15 - 5);
             var method = firstValue.Sub(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
         [Fact]
         public void FifteenMinusThree()
@@ -111,7 +111,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(3);
             BinaryNumber result = new BinaryNumber(15 - 3);
             var method = firstValue.Sub(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
 
 
@@ -167,7 +167,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(20);
             BinaryNumber result = new BinaryNumber(20 * 10);
             var method = firstValue.Multiply(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
         [Fact]
         public void FourTimesFour()
@@ -176,7 +176,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(4);
             BinaryNumber result = new BinaryNumber(4 * 4);
             var method = firstValue.Multiply(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
         [Fact]
         public void TenTimesEleven()
@@ -185,7 +185,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(11);
             BinaryNumber result = new BinaryNumber(10 * 11);
             var method = firstValue.Multiply(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
 
         [Fact]
@@ -195,7 +195,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(3);
             BinaryNumber result = new BinaryNumber(9 / 3);
             var method = firstValue.Divide(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
         [Fact]
         public void FifteenDividedIntoThree()
@@ -204,7 +204,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(3);
             BinaryNumber result = new BinaryNumber(15 / 3);
             var method = firstValue.Divide(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
         [Fact]
         public void TwentyDividedIntoTwo()
@@ -213,7 +213,7 @@ namespace BinaryNumber
             BinaryNumber secondValue = new BinaryNumber(2);
             BinaryNumber result = new BinaryNumber(20 / 2);
             var method = firstValue.Divide(secondValue, 2);
-            Assert.Equal(result.GetValue(), method.GetValue());
+            Assert.True(result.Equal(method));
         }
     }
 }

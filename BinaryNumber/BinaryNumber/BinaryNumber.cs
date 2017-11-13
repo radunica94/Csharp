@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
-
 namespace BinaryNumber
 {
     class BinaryNumber
@@ -17,11 +15,6 @@ namespace BinaryNumber
         {
             this.value = number;
         }
-        public byte[] GetValue()
-        {
-            return value;
-        }
-
         private byte[] ConvertToBinary(int value)
         {
             byte[] binary = new byte[0];
@@ -55,21 +48,20 @@ namespace BinaryNumber
             }
             return ReverseBinary(result);
         }
-
+        //And
         private byte ANDOperator(byte firstValue, byte secondValue)
         {
             if (firstValue == secondValue && firstValue == 1)
                 return 1;
             return 0;
         }
-
         public BinaryNumber And(BinaryNumber secondValue)
         {
             var result = LogicOperation(value, secondValue.value, "AND");
             BinaryNumber binaryNumber = new BinaryNumber(result);
             return binaryNumber;
         }
-
+        //Or
         private byte OROperator(byte firstValue, byte secondValue)
         {
             if (firstValue == 1 || secondValue == 1)
@@ -82,20 +74,20 @@ namespace BinaryNumber
             BinaryNumber binaryNumber = new BinaryNumber(result);
             return binaryNumber;
         }
+        //Xor
         private byte XOROperator(byte firstValue, byte secondValue)
         {
             if (firstValue != secondValue)
                 return 1;
             return 0;
         }
-
         public BinaryNumber Xor(BinaryNumber secondValue)
         {
             var result = LogicOperation(value, secondValue.value, "XOR");
             BinaryNumber binaryNumber = new BinaryNumber(result);
             return binaryNumber;
         }
-
+        //LogicOperation
         private byte LogicOperation(byte firstValue, byte secondValue, string operation)
         {
             switch (operation)
@@ -109,14 +101,12 @@ namespace BinaryNumber
             }
             return 0;
         }
-
         private byte AddZero(byte[] number, int position)
         {
             if (position >= (number.Length))
                 return (byte)0;
             return number[number.Length - position - 1];
         }
-
         private byte[] NotOperation(byte[] value)
         {
             byte[] result = new byte[value.Length];
@@ -159,14 +149,12 @@ namespace BinaryNumber
             }
             return newValue;
         }
-
         public BinaryNumber ShiftL(byte shiftsNr)
         {
             var result = LeftShift(value, shiftsNr);
             BinaryNumber binaryNumber = new BinaryNumber(result);
             return binaryNumber;
         }
-
         //AddOperation
         private byte[] AddOperation(byte[] firstValue, byte[] secondValue, int conversion)
         {
@@ -191,7 +179,6 @@ namespace BinaryNumber
             BinaryNumber binaryNumber = new BinaryNumber(result);
             return binaryNumber;
         }
-
         //SubtractOperation
         private byte[] SubtractOperation(byte[] firstValue, byte[] secondValue, int conversion)
         {
@@ -211,21 +198,17 @@ namespace BinaryNumber
             BinaryNumber binaryNumber = new BinaryNumber(result);
             return binaryNumber;
         }
-
         //NotEqual Function
         private bool NotEqual(byte[] firstValue, byte[] secondValue)
         {
             return (GraterThan(firstValue, secondValue) || GraterThan(secondValue, firstValue));
         }
-
         public bool NotEqual(BinaryNumber secondValue)
         {
             if (NotEqual(value, secondValue.value))
                 return true;
             return false;
         }
-
-
         //GraterThan Function
         private bool GraterThan(byte[] firstValue, byte[] secondValue)
         {
@@ -248,10 +231,8 @@ namespace BinaryNumber
                     return false;
             return true;
         }
-
         public bool Equal(BinaryNumber secondValue)
         {
-
             if (Equal(value, secondValue.value))
                 return true;
             return false;
@@ -284,7 +265,6 @@ namespace BinaryNumber
             }
             return ConvertIntoBase(divizor, conversion);
         }
-
         public BinaryNumber Divide(BinaryNumber secondValue, int conversion)
         {
             var result = DivideOperation(value, secondValue.value, conversion);
