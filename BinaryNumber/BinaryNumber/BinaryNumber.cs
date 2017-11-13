@@ -8,12 +8,15 @@ namespace BinaryNumber
     class BinaryNumber
     {
         private byte[] value;
-        
+
         public BinaryNumber(int number)
         {
             this.value = ConvertToBinary(number);
-
-        }        
+        }
+        public BinaryNumber(byte[] number)
+        {
+            this.value = number;
+        }
         public byte[] GetValue()
         {
             return value;
@@ -51,7 +54,7 @@ namespace BinaryNumber
                 result[i] = LogicOperation(firstValueByte, secondValueByte, operation);
             }
             return ReverseBinary(result);
-        }        
+        }
 
         private byte ANDOperator(byte firstValue, byte secondValue)
         {
@@ -60,11 +63,12 @@ namespace BinaryNumber
             return 0;
         }
 
-        public byte[] And(BinaryNumber secondValue)
+        public BinaryNumber And(BinaryNumber secondValue)
         {
-            return LogicOperation(value, secondValue.value, "AND");
+            var result = LogicOperation(value, secondValue.value, "AND");
+            BinaryNumber binaryNumber = new BinaryNumber(result);
+            return binaryNumber;
         }
-
 
         private byte OROperator(byte firstValue, byte secondValue)
         {
@@ -72,9 +76,11 @@ namespace BinaryNumber
                 return 1;
             return 0;
         }
-        public byte[] Or(BinaryNumber secondValue)
+        public BinaryNumber Or(BinaryNumber secondValue)
         {
-            return LogicOperation(value, secondValue.value, "OR");
+            var result = LogicOperation(value, secondValue.value, "OR");
+            BinaryNumber binaryNumber = new BinaryNumber(result);
+            return binaryNumber;
         }
         private byte XOROperator(byte firstValue, byte secondValue)
         {
@@ -83,9 +89,11 @@ namespace BinaryNumber
             return 0;
         }
 
-        public byte[] Xor(BinaryNumber secondValue)
+        public BinaryNumber Xor(BinaryNumber secondValue)
         {
-            return LogicOperation(value, secondValue.value, "XOR");
+            var result = LogicOperation(value, secondValue.value, "XOR");
+            BinaryNumber binaryNumber = new BinaryNumber(result);
+            return binaryNumber;
         }
 
         private byte LogicOperation(byte firstValue, byte secondValue, string operation)
@@ -101,8 +109,6 @@ namespace BinaryNumber
             }
             return 0;
         }
-
-        
 
         private byte AddZero(byte[] number, int position)
         {
@@ -127,35 +133,39 @@ namespace BinaryNumber
         private byte[] RightShift(byte[] value, byte shiftsNr)
         {
             byte[] result = new byte[value.Length - 2];
-            for (int i = 0; i < value.Length-2; i++)
+            for (int i = 0; i < value.Length - 2; i++)
             {
                 result[i] = value[i];
             }
             return result;
         }
-        public byte[] ShiftR(byte shiftsNr)
+        public BinaryNumber ShiftR(byte shiftsNr)
         {
-            return RightShift(value, shiftsNr);
+            var result = RightShift(value, shiftsNr);
+            BinaryNumber binaryNumber = new BinaryNumber(result);
+            return binaryNumber;
         }
         //Left Shift 
         private byte[] LeftShift(byte[] value, byte shiftsNr)
         {
             byte[] newValue = new byte[value.Length + shiftsNr];
-            for(int i = 0; i < value.Length; i++)
+            for (int i = 0; i < value.Length; i++)
             {
                 newValue[i] = value[i];
             }
-            for(int i=value.Length; i<value.Length + shiftsNr; i++)
+            for (int i = value.Length; i < value.Length + shiftsNr; i++)
             {
                 newValue[i] = 0;
             }
             return newValue;
-        }      
+        }
 
-        public byte[] ShiftL(byte shiftsNr)
+        public BinaryNumber ShiftL(byte shiftsNr)
         {
-            return LeftShift(value, shiftsNr);
-        }                
+            var result = LeftShift(value, shiftsNr);
+            BinaryNumber binaryNumber = new BinaryNumber(result);
+            return binaryNumber;
+        }
 
         //AddOperation
         private byte[] AddOperation(byte[] firstValue, byte[] secondValue, int conversion)
@@ -175,12 +185,11 @@ namespace BinaryNumber
             }
             return ReverseBinary(result);
         }
-
-        
-
-        public byte[] Add(BinaryNumber secondValue,int conversion)
+        public BinaryNumber Add(BinaryNumber secondValue, int conversion)
         {
-            return AddOperation(value, secondValue.value, conversion);
+            var result = AddOperation(value, secondValue.value, conversion);
+            BinaryNumber binaryNumber = new BinaryNumber(result);
+            return binaryNumber;
         }
 
         //SubtractOperation
@@ -196,9 +205,11 @@ namespace BinaryNumber
             }
             return ReverseBinary(result);
         }
-        public byte[] Sub(BinaryNumber secondValue, int conversion)
+        public BinaryNumber Sub(BinaryNumber secondValue, int conversion)
         {
-            return SubtractOperation(value, secondValue.value, conversion);
+            var result = SubtractOperation(value, secondValue.value, conversion);
+            BinaryNumber binaryNumber = new BinaryNumber(result);
+            return binaryNumber;
         }
 
         //NotEqual Function
@@ -238,12 +249,10 @@ namespace BinaryNumber
             return true;
         }
 
-        
-
         public bool Equal(BinaryNumber secondValue)
         {
 
-            if (Equal(value, secondValue.value)) 
+            if (Equal(value, secondValue.value))
                 return true;
             return false;
         }
@@ -258,9 +267,11 @@ namespace BinaryNumber
             }
             return result;
         }
-       public byte[] Multiply(BinaryNumber secondValue, int conversion)
+        public BinaryNumber Multiply(BinaryNumber secondValue, int conversion)
         {
-            return MultiplyOperation(value, secondValue.value, conversion);
+            var result = MultiplyOperation(value, secondValue.value, conversion);
+            BinaryNumber binaryNumber = new BinaryNumber(result);
+            return binaryNumber;
         }
         //DivideOperation
         private byte[] DivideOperation(byte[] firstValue, byte[] secondValue, int conversion)
@@ -274,9 +285,11 @@ namespace BinaryNumber
             return ConvertIntoBase(divizor, conversion);
         }
 
-        public byte[] Divide(BinaryNumber secondValue, int conversion)
+        public BinaryNumber Divide(BinaryNumber secondValue, int conversion)
         {
-            return DivideOperation(value, secondValue.value, conversion);
+            var result = DivideOperation(value, secondValue.value, conversion);
+            BinaryNumber binaryNumber = new BinaryNumber(result);
+            return binaryNumber;
         }
         //ConvertIntoBase
         private byte[] ConvertIntoBase(double value, int conversion)
@@ -292,8 +305,5 @@ namespace BinaryNumber
             }
             return ReverseBinary(result);
         }
-
-        
-
     }
 }
