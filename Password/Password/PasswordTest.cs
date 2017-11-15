@@ -6,8 +6,9 @@ namespace Password
     public class PasswordTest
     {
         [Fact]
-        public void Test1()
+        public void SmallLettersOnly()
         {
+            PasswordSettings settings = new PasswordSettings();            
         }
     }
 }
