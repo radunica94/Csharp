@@ -25,7 +25,12 @@ namespace Shopping
 
         public int TotalPrice()
         {
-            return 37;
+            int totalPrice = 0;
+            for(int i=0; i< productList.Length; i++)
+            {
+                totalPrice += productList[i].numberOfProducts * productList[i].price;
+            }
+            return totalPrice;
         }
     }
 }
