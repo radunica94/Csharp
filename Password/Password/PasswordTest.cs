@@ -8,7 +8,7 @@ namespace Password
         [Fact]
         public void SmallLettersOnly()
         {
-            PasswordSettings settings = new PasswordSettings();            
+            
         }
     }
 }
