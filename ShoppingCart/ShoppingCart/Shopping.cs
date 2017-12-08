@@ -72,6 +72,15 @@ namespace Shopping
             newProductList[newProductList.Length - 1] = newProduct;
             return newProductList;
         }
+        public int MediumPrice()
+        {
+            int total = 0;
+            for(int i = 0; i < productList.Length; i++)
+            {
+                total += productList[i].price;
+            }
+            return total / productList.Length;
+        }
     }
 }
 

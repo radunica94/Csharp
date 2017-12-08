@@ -46,5 +46,13 @@ namespace Shopping
             var method = productList.AddNewProduct(newResult, new Shopping.Product(2, 2));
             Assert.Equal(newResult, method);
         }
+        [Fact]
+        public void MediumPrice()
+        {
+            Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(4, 1) };
+            Shopping productList = new Shopping(result);
+            var method = productList.MediumPrice();
+            Assert.Equal(8, method);
+        }
     }
 }
