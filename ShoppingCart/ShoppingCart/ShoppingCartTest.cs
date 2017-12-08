@@ -28,5 +28,14 @@ namespace Shopping
             var method = productList.CheapestProduct();
             Assert.Equal(result[2], method);
         }
+        [Fact]
+        public void MostExpensiveProduct()
+        {
+            Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1) };
+            Shopping productList = new Shopping(result);
+            var method = productList.MostExpensiveProduct();
+            Assert.Equal(result[1], method);
+        }
+
     }
 }

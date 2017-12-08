@@ -46,6 +46,21 @@ namespace Shopping
             }
             return productList[counter];
         }
+
+        public Product MostExpensiveProduct()
+        {
+            int mostExpensiveProduct = productList[0].price;
+            int counter = 0;
+            for(int i = 0; i < productList.Length; i++)
+            {
+                if (productList[i].price > mostExpensiveProduct)
+                {
+                    mostExpensiveProduct = productList[i].price;
+                    counter = i;
+                }
+            }
+            return productList[counter];
+        }
     }
 }
 
