@@ -6,14 +6,14 @@ namespace Shopping
     public class ShoppingCartTest
     {
         [Fact]
-        public void Test1()
+        public void TestTheStruct()
         {
             Shopping.Product result = new Shopping.Product(10, 2);
             var price = result.price;
             Assert.Equal(10, price);
         }
         [Fact]
-        public void TestForTotalPrice()
+        public void CalculateTotalPrice()
         {
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 2), new Shopping.Product(2, 1) };
             Shopping productList = new Shopping(result);
@@ -21,7 +21,7 @@ namespace Shopping
             Assert.Equal(37, method);
         }
         [Fact]
-        public void TestForCheapestProduct()
+        public void GetTheCheapestProduct()
         {
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1) };
             Shopping productList = new Shopping(result);
@@ -29,7 +29,7 @@ namespace Shopping
             Assert.Equal(result[2], method);
         }
         [Fact]
-        public void TestForRemovingTheMostExpensiveProduct()
+        public void RemoveTheMostExpensiveProduct()
         {
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1) };
             Shopping.Product[] newResult = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(2, 1) };
@@ -38,7 +38,7 @@ namespace Shopping
             Assert.Equal(newResult, method);
         }
         [Fact]
-        public void TestForAddNewProduct()
+        public void AddNewProduct()
         {
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1) };
             Shopping.Product[] newResult = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1), new Shopping.Product(2, 2) };
@@ -47,7 +47,7 @@ namespace Shopping
             Assert.Equal(newResult, method);
         }
         [Fact]
-        public void TestForMediumPrice()
+        public void CalculateMediumPrice()
         {
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(4, 1) };
             Shopping productList = new Shopping(result);
