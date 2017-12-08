@@ -47,7 +47,7 @@ namespace Shopping
             return productList[counter];
         }
 
-        public Product MostExpensiveProduct()
+        public Product[] MostExpensiveProduct()
         {
             int mostExpensiveProduct = productList[0].price;
             int counter = 0;
@@ -59,7 +59,18 @@ namespace Shopping
                     counter = i;
                 }
             }
-            return productList[counter];
+            for (int i = counter; i < productList.Length - 1; i++)
+                productList[i] = productList[i + 1];
+            Array.Resize(ref productList, productList.Length - 1);
+            return productList;
+        }
+
+        public Product[] AddNewProduct(Product[] productList,Product newProduct)
+        {
+            Product[] newProductList = new Product[productList.Length + 1];
+            newProductList = productList;
+            newProductList[newProductList.Length - 1] = newProduct;
+            return newProductList;
         }
     }
 }
