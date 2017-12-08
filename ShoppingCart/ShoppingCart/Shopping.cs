@@ -47,7 +47,7 @@ namespace Shopping
             return productList[counter];
         }
 
-        public Product[] MostExpensiveProduct()
+        public Product[] RemoveTheMostExpensiveProduct()
         {
             int mostExpensiveProduct = productList[0].price;
             int counter = 0;
