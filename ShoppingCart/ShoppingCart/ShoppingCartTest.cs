@@ -43,7 +43,7 @@ namespace Shopping
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1) };
             Shopping.Product[] newResult = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1), new Shopping.Product(2, 2) };
             Shopping productList = new Shopping(result);
-            var method = productList.AddNewProduct(newResult, new Shopping.Product(2, 2));
+            var method = productList.AddNewProduct(new Shopping.Product(2, 2));
             Assert.Equal(newResult, method);
         }
         [Fact]

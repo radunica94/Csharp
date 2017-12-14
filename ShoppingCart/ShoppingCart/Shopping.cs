@@ -65,12 +65,11 @@ namespace Shopping
             return productList;
         }
 
-        public Product[] AddNewProduct(Product[] productList,Product newProduct)
+        public Product[] AddNewProduct(Product newProduct)
         {
-            Product[] newProductList = new Product[productList.Length + 1];
-            newProductList = productList;
-            newProductList[newProductList.Length - 1] = newProduct;
-            return newProductList;
+            Array.Resize(ref productList, productList.Length + 1);
+            productList[productList.Length - 1] = newProduct;
+            return productList;
         }
         public int MediumPrice()
         {
