@@ -16,43 +16,43 @@ namespace Shopping
         public void CalculateTotalPrice()
         {
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 2), new Shopping.Product(2, 1) };
-            Shopping productList = new Shopping(result);
-            var method = productList.TotalPrice();
-            Assert.Equal(37, method);
+            Shopping shoppingList = new Shopping(result);
+            var newList = shoppingList.TotalPrice();
+            Assert.Equal(37, newList);
         }
         [Fact]
         public void GetTheCheapestProduct()
         {
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1) };
-            Shopping productList = new Shopping(result);
-            var method = productList.CheapestProduct();
-            Assert.Equal(result[2], method);
+            Shopping shoppingList = new Shopping(result);
+            var newList = shoppingList.CheapestProduct();
+            Assert.Equal(result[2], newList);
         }
         [Fact]
         public void RemoveTheMostExpensiveProduct()
         {
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1) };
             Shopping.Product[] newResult = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(2, 1) };
-            Shopping productList = new Shopping(result);
-            var method = productList.RemoveTheMostExpensiveProduct();
-            Assert.Equal(newResult, method);
+            Shopping shoppingList = new Shopping(result);
+            var newList = shoppingList.RemoveTheMostExpensiveProduct();
+            Assert.Equal(newResult, newList);
         }
         [Fact]
         public void AddNewProduct()
         {
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1) };
             Shopping.Product[] newResult = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(2, 1), new Shopping.Product(2, 2) };
-            Shopping productList = new Shopping(result);
-            var method = productList.AddNewProduct(new Shopping.Product(2, 2));
-            Assert.Equal(newResult, method);
+            Shopping shoppingList = new Shopping(result);
+            var newList = shoppingList.AddNewProduct(new Shopping.Product(2, 2));
+            Assert.Equal(newResult, newList);
         }
         [Fact]
         public void CalculateMediumPrice()
         {
             Shopping.Product[] result = new Shopping.Product[] { new Shopping.Product(5, 1), new Shopping.Product(15, 1), new Shopping.Product(4, 1) };
-            Shopping productList = new Shopping(result);
-            var method = productList.MediumPrice();
-            Assert.Equal(8, method);
+            Shopping shoppingList = new Shopping(result);
+            var newList = shoppingList.MediumPrice();
+            Assert.Equal(8, newList);
         }
     }
 }
