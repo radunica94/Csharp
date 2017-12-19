@@ -4,20 +4,27 @@ using System.Text;
 
 namespace Shopping
 {
-    class Shopping
+    class ShoppingCart
     {
         private Product[] productList;
         public struct Product
         {
+            public string name;
             public int price;
             public int numberOfProducts;
-            public Product(int price, int numberOfProducts)
+            public Product(string name, int price, int numberOfProducts)
             {
+                this.name = name;
                 this.price = price;
                 this.numberOfProducts = numberOfProducts;
             }
+            public override bool Equals(object obj)
+            {
+                var otherProduct = (Product)obj;
+                return this.name.Equals(otherProduct.name, StringComparison.CurrentCultureIgnoreCase);
+            }
         }
-        public Shopping(Product[] productList)
+        public ShoppingCart(Product[] productList)
         {
             this.productList = productList;
         }
@@ -47,10 +54,10 @@ namespace Shopping
             return productList[counter];
         }
 
-        public Product[] RemoveTheMostExpensiveProduct()
+        public void RemoveTheMostExpensiveProduct()
         {
             int mostExpensiveProduct = productList[0].price;
-            int counter = 0;
+            int counter = 0;            
             for(int i = 0; i < productList.Length; i++)
             {
                 if (productList[i].price > mostExpensiveProduct)
@@ -61,15 +68,13 @@ namespace Shopping
             }
             for (int i = counter; i < productList.Length - 1; i++)
                 productList[i] = productList[i + 1];
-            Array.Resize(ref productList, productList.Length - 1);
-            return productList;
+            Array.Resize(ref productList, productList.Length - 1);            
         }
 
-        public Product[] AddNewProduct(Product newProduct)
+        public void AddNewProduct(Product newProduct)
         {
             Array.Resize(ref productList, productList.Length + 1);
-            productList[productList.Length - 1] = newProduct;
-            return productList;
+            productList[productList.Length - 1] = newProduct;            
         }
         public int MediumPrice()
         {
@@ -79,6 +84,13 @@ namespace Shopping
                 total += productList[i].price;
             }
             return total / productList.Length;
+        }
+        public bool Contains(Product product)
+        {
+            for (int i = 0; i < productList.Length; i++)
+                if (productList[i].Equals(product))
+                    return true;
+            return false;
         }
     }
 }
