@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop", "OnlineShop\OnlineShop.csproj", "{6EB2EDAF-D08E-4CD1-A151-62037FF9DAA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopBL", "OnlineShop\OnlineShopBL.csproj", "{6EB2EDAF-D08E-4CD1-A151-62037FF9DAA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopUI", "WpfApp1\OnlineShopUI.csproj", "{ADAA503D-5393-4132-A361-0638243D2D71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6EB2EDAF-D08E-4CD1-A151-62037FF9DAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EB2EDAF-D08E-4CD1-A151-62037FF9DAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EB2EDAF-D08E-4CD1-A151-62037FF9DAA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAA503D-5393-4132-A361-0638243D2D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAA503D-5393-4132-A361-0638243D2D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAA503D-5393-4132-A361-0638243D2D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAA503D-5393-4132-A361-0638243D2D71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
