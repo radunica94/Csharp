@@ -9,12 +9,14 @@ namespace OnlineShop
         private Product[] productList;
         public struct Product
         {
+            public int productId;
             public string productName;
             public decimal productPrice;
             public int numberOfProducts;
             public string description;
-            public Product(string productName, decimal productPrice, int numberOfProducts, string description)
+            public Product(int productId, string productName, decimal productPrice, int numberOfProducts, string description)
             {
+                this.productId = productId;
                 this.productName = productName;
                 this.productPrice = productPrice;
                 this.numberOfProducts = numberOfProducts;
@@ -25,6 +27,7 @@ namespace OnlineShop
         {
             this.productList = productList;
         }
+
         public bool Contains(Product product)
         {
             for (int i = 0; i < productList.Length; i++)
